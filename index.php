@@ -72,6 +72,68 @@ $hero_style = $hero_bg ? "style=\"background-image: url('" . esc_url($hero_bg) .
         </section>
         <!-- end hero section -->
 
+
+        <!--start project section-->
+        <section class="wpo-project-section">
+            <div class="project-wrapper">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-7 col-12">
+                            <div class="wpo-section-title-s2">
+                                <span><i><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/title-icon-2.png" alt="icon"></i><?php echo esc_html(get_theme_mod('gallery_section_label', 'Work gallery')); ?></span>
+                                <h2 class="poort-text poort-in-right"><?php echo esc_html(get_theme_mod('gallery_section_title', "we've powered over 200+ successful projects.")); ?></h2>
+                                <p><?php echo esc_html(get_theme_mod('gallery_section_desc', 'From refrigerator repairs to complete AC servicing, see our quality work across Srinagar.')); ?></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-12">
+                            <div class="title-btn-right wow fadeInRightSlow" data-wow-duration="1000ms">
+                                <a href="<?php echo esc_url(get_theme_mod('gallery_btn_link', home_url('/book-appointment-and-service/'))); ?>" class="theme-btn-s2"><?php echo esc_html(get_theme_mod('gallery_btn_text', 'Book An Appointment')); ?></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="project-slider owl-carousel">
+<?php
+    $work_query = new WP_Query(['post_type' => 'work_gallery', 'posts_per_page' => -1]);
+    $work_idx = 0;
+    if ($work_query->have_posts()): while ($work_query->have_posts()): $work_query->the_post();
+        $work_idx++;
+        $media_type = get_post_meta(get_the_ID(), '_gallery_media_type', true);
+        $video_url  = get_post_meta(get_the_ID(), '_gallery_video_url', true);
+        $is_video   = ($media_type === 'video' && !empty($video_url));
+        $full_work_img = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : (get_template_directory_uri() . '/assets/images/project/' . (($work_idx % 4) + 1) . '.jpg');
+        $target_url = $is_video ? $video_url : $full_work_img;
+        $btn_class  = $is_video ? 'video-btn' : 'fancybox';
+        $group_attr = $is_video ? '' : 'data-fancybox-group="home-gallery"';
+?>
+                          <div class="project-card">
+                              <div class="image">
+                                  <a href="<?php echo esc_url($target_url); ?>" class="<?php echo esc_attr($btn_class); ?> d-block" <?php echo $group_attr; ?> title="<?php the_title_attribute(); ?>">
+                                      <?php if ($is_video) : ?>
+                                          <span class="gallery-video-badge"><i class="ti-video-clapper"></i> Video</span>
+                                          <div class="gallery-play-btn"><i class="ti-control-play"></i></div>
+                                      <?php endif; ?>
+                                      <?php if (has_post_thumbnail()) { the_post_thumbnail('full'); } else { ?>
+                                      <img src="<?php echo esc_url($full_work_img); ?>" alt="<?php the_title_attribute(); ?>">
+                                      <?php } ?>
+                                  </a>
+                                  <div class="content">
+                                      <h2><a href="<?php echo esc_url($target_url); ?>" class="<?php echo esc_attr($btn_class); ?>" <?php echo $group_attr; ?> title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+                                      <div class="icon"><a href="<?php echo esc_url($target_url); ?>" class="<?php echo esc_attr($btn_class); ?>" <?php echo $group_attr; ?> title="<?php the_title_attribute(); ?>"><img
+                                                  src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/arrow-top-hover.png" alt="icon"></a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+<?php endwhile;
+    wp_reset_postdata();endif; ?>
+                      </div>
+                  </div>
+              </div>
+          </section>
+        <!--end project section-->
+
         <!-- start about section -->
         <section class="wpo-about-section">
             <div class="container">
@@ -337,68 +399,6 @@ for ($i = 1; $i <= 4; $i++):
             </div>
         </section>
         <!--end odometer section-->
-
-        <!--start project section-->
-        <section class="wpo-project-section">
-            <div class="project-wrapper">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-7 col-12">
-                            <div class="wpo-section-title-s2">
-                                <span><i><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/title-icon-2.png" alt="icon"></i><?php echo esc_html(get_theme_mod('gallery_section_label', 'Work gallery')); ?></span>
-                                <h2 class="poort-text poort-in-right"><?php echo esc_html(get_theme_mod('gallery_section_title', "we've powered over 200+ successful projects.")); ?></h2>
-                                <p><?php echo esc_html(get_theme_mod('gallery_section_desc', 'From refrigerator repairs to complete AC servicing, see our quality work across Srinagar.')); ?></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-12">
-                            <div class="title-btn-right wow fadeInRightSlow" data-wow-duration="1000ms">
-                                <a href="<?php echo esc_url(get_theme_mod('gallery_btn_link', home_url('/book-appointment-and-service/'))); ?>" class="theme-btn-s2"><?php echo esc_html(get_theme_mod('gallery_btn_text', 'Book An Appointment')); ?></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-fluid">
-                    <div class="project-slider owl-carousel">
-<?php
-    $work_query = new WP_Query(['post_type' => 'work_gallery', 'posts_per_page' => -1]);
-    $work_idx = 0;
-    if ($work_query->have_posts()): while ($work_query->have_posts()): $work_query->the_post();
-        $work_idx++;
-        $media_type = get_post_meta(get_the_ID(), '_gallery_media_type', true);
-        $video_url  = get_post_meta(get_the_ID(), '_gallery_video_url', true);
-        $is_video   = ($media_type === 'video' && !empty($video_url));
-        $full_work_img = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : (get_template_directory_uri() . '/assets/images/project/' . (($work_idx % 4) + 1) . '.jpg');
-        $target_url = $is_video ? $video_url : $full_work_img;
-        $btn_class  = $is_video ? 'video-btn' : 'fancybox';
-        $group_attr = $is_video ? '' : 'data-fancybox-group="home-gallery"';
-?>
-                          <div class="project-card">
-                              <div class="image">
-                                  <a href="<?php echo esc_url($target_url); ?>" class="<?php echo esc_attr($btn_class); ?> d-block" <?php echo $group_attr; ?> title="<?php the_title_attribute(); ?>">
-                                      <?php if ($is_video) : ?>
-                                          <span class="gallery-video-badge"><i class="ti-video-clapper"></i> Video</span>
-                                          <div class="gallery-play-btn"><i class="ti-control-play"></i></div>
-                                      <?php endif; ?>
-                                      <?php if (has_post_thumbnail()) { the_post_thumbnail('full'); } else { ?>
-                                      <img src="<?php echo esc_url($full_work_img); ?>" alt="<?php the_title_attribute(); ?>">
-                                      <?php } ?>
-                                  </a>
-                                  <div class="content">
-                                      <h2><a href="<?php echo esc_url($target_url); ?>" class="<?php echo esc_attr($btn_class); ?>" <?php echo $group_attr; ?> title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-                                      <div class="icon"><a href="<?php echo esc_url($target_url); ?>" class="<?php echo esc_attr($btn_class); ?>" <?php echo $group_attr; ?> title="<?php the_title_attribute(); ?>"><img
-                                                  src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/arrow-top-hover.png" alt="icon"></a>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-<?php endwhile;
-    wp_reset_postdata();endif; ?>
-                      </div>
-                  </div>
-              </div>
-          </section>
-        <!--end project section-->
-
         <!--start history-section-->
         <section class="wpo-history-section section-padding">
             <div class="container">
@@ -743,3 +743,4 @@ for ($i = 1; $i <= 4; $i++):
         <!-- end blog-section-->
 
         <?php get_footer(); ?>
+
