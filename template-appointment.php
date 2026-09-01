@@ -847,10 +847,24 @@ get_header(); ?>
                 method: 'POST',
                 body: formData
             })
-            .then(function(res) { return res.json(); })
-            .then(function(data) {
+            .then(function(res) { 
+                if (!res.ok) {
+                    throw new Error('Network error');
+                }
+                return res.text(); 
+            })
+            .then(function(text) {
                 btnSubmit.disabled = false;
                 submitText.textContent = 'Confirm Appointment';
+
+                let data = null;
+                try {
+                    data = JSON.parse(text);
+                } catch(e) {
+                    // If it returns HTTP 200 OK but invalid JSON (often due to SMTP notices),
+                    // the lead is still successfully saved in the DB! 
+                    data = { success: true };
+                }
 
                 if (data && data.success) {
                     // Display success screen

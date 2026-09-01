@@ -271,10 +271,14 @@ function wa_submit_lead_ajax() {
         $headers = array('Reply-To: ' . $name . ' <' . $email . '>');
         
         try {
+            ob_start();
             @wp_mail($to, $subject, $message, $headers);
+            ob_end_clean();
         } catch (Exception $e) {
+            ob_end_clean();
             // Ignore mail errors so the lead is still saved
         } catch (Throwable $e) {
+            ob_end_clean();
             // Ignore mail errors
         }
 
