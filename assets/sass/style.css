@@ -13389,7 +13389,7 @@ img {
 }
 
 /* ==========================================================================
-   Work Gallery Hover Card Text & Overlay Fix
+   Work Gallery Hover Card Text & Overlay Fix (Zero Displacement)
    ========================================================================== */
 .wpo-project-section-s2 .project-wrap .project-items .project-image,
 .project-items .project-image {
@@ -13397,7 +13397,7 @@ img {
     border-radius: 20px !important;
     overflow: hidden !important;
     height: 280px !important;
-    background-color: #1F2937 !important;
+    background-color: #111827 !important;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
 }
 
@@ -13417,48 +13417,65 @@ img {
 .project-items .project-image::before {
     content: "" !important;
     position: absolute !important;
+    inset: 0 !important;
     top: 0 !important;
     left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(10, 25, 60, 0.88) 100%) !important;
+    transform: none !important;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(10, 20, 50, 0.90) 100%) !important;
     opacity: 0 !important;
     visibility: hidden !important;
-    transition: all 0.4s ease-in-out !important;
+    transition: opacity 0.35s ease-in-out, visibility 0.35s ease-in-out !important;
     z-index: 2 !important;
     border-radius: 20px !important;
+    pointer-events: none !important;
 }
 
 .wpo-project-section-s2 .project-wrap .project-items .project-image:hover::before,
-.project-items .project-image:hover::before {
+.project-items .project-image:hover::before,
+.project-items:hover .project-image::before {
     opacity: 1 !important;
     visibility: visible !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
 }
 
 .wpo-project-section-s2 .project-wrap .project-items .project-image:hover img,
-.project-items .project-image:hover img {
+.project-items .project-image:hover img,
+.project-items:hover .project-image img {
     transform: scale(1.08) !important;
 }
 
 .wpo-project-section-s2 .project-wrap .project-items .project-image .project-text,
-.project-items .project-image .project-text {
+.project-items .project-image .project-text,
+.project-items .project-text {
     position: absolute !important;
-    bottom: 0 !important;
     left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
     width: 100% !important;
     padding: 16px 20px !important;
     text-align: center !important;
     z-index: 3 !important;
     opacity: 0 !important;
     visibility: hidden !important;
-    transition: all 0.4s ease-in-out !important;
+    transform: translateY(10px) !important;
+    transition: all 0.35s ease-in-out !important;
+    pointer-events: none !important;
 }
 
 .wpo-project-section-s2 .project-wrap .project-items .project-image:hover .project-text,
-.project-items .project-image:hover .project-text {
-    bottom: 12px !important;
+.project-items .project-image:hover .project-text,
+.project-items:hover .project-image .project-text,
+.project-items:hover .project-text {
     opacity: 1 !important;
     visibility: visible !important;
+    transform: translateY(0) !important;
+    bottom: 6px !important;
 }
 
 .wpo-project-section-s2 .project-wrap .project-items .project-image .project-text h3,
@@ -13473,5 +13490,5 @@ img {
     font-weight: 700 !important;
     line-height: 24px !important;
     margin: 0 !important;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9) !important;
 }
