@@ -736,15 +736,22 @@
             submitHandler: function (form) {
                 $.ajax({
                     type: "POST",
-                    url: "mail-contact.php",
-                    data: $(form).serialize(),
-                    success: function () {
+                    url: (typeof ajaxurl !== 'undefined') ? ajaxurl : '/wp-admin/admin-ajax.php',
+                    data: $(form).serialize() + '&action=wa_submit_lead',
+                    success: function (response) {
                         $("#loader").hide();
-                        $("#success").slideDown("slow");
-                        setTimeout(function () {
-                            $("#success").slideUp("slow");
-                        }, 3000);
-                        form.reset();
+                        if (response.success) {
+                            $("#success").slideDown("slow");
+                            setTimeout(function () {
+                                $("#success").slideUp("slow");
+                            }, 3000);
+                            form.reset();
+                        } else {
+                            $("#error").slideDown("slow");
+                            setTimeout(function () {
+                                $("#error").slideUp("slow");
+                            }, 3000);
+                        }
                     },
                     error: function () {
                         $("#loader").hide();
@@ -789,15 +796,22 @@
             submitHandler: function (form) {
                 $.ajax({
                     type: "POST",
-                    url: "mail-contact.php",
-                    data: $(form).serialize(),
-                    success: function () {
+                    url: (typeof ajaxurl !== 'undefined') ? ajaxurl : '/wp-admin/admin-ajax.php',
+                    data: $(form).serialize() + '&action=wa_submit_lead',
+                    success: function (response) {
                         $("#loader").hide();
-                        $("#success").slideDown("slow");
-                        setTimeout(function () {
-                            $("#success").slideUp("slow");
-                        }, 3000);
-                        form.reset();
+                        if (response.success) {
+                            $("#success").slideDown("slow");
+                            setTimeout(function () {
+                                $("#success").slideUp("slow");
+                            }, 3000);
+                            form.reset();
+                        } else {
+                            $("#error").slideDown("slow");
+                            setTimeout(function () {
+                                $("#error").slideUp("slow");
+                            }, 3000);
+                        }
                     },
                     error: function () {
                         $("#loader").hide();
@@ -809,6 +823,44 @@
                 });
                 return false; // required to block normal submit since you used ajax
             }
+        });
+    }
+
+    /*------------------------------------------
+        = NEWSLETTER FORM SUBMISSION
+    -------------------------------------------*/
+    if ($("#newsletter-form").length) {
+        $("#newsletter-form").on("submit", function(e) {
+            e.preventDefault();
+            var form = $(this);
+            var btn = form.find('button[type="submit"]');
+            var origText = btn.text();
+            btn.text('Sending...').prop('disabled', true);
+            
+            $.ajax({
+                type: "POST",
+                url: (typeof ajaxurl !== 'undefined') ? ajaxurl : '/wp-admin/admin-ajax.php',
+                data: form.serialize() + '&action=wa_submit_newsletter',
+                success: function (response) {
+                    btn.text(origText).prop('disabled', false);
+                    if(response.success) {
+                        $('#n-success').text(response.data.message).css('color', '#25D366').slideDown("slow");
+                        form[0].reset();
+                    } else {
+                        $('#n-success').text(response.data.message).css('color', 'red').slideDown("slow");
+                    }
+                    setTimeout(function () {
+                        $("#n-success").slideUp("slow");
+                    }, 4000);
+                },
+                error: function () {
+                    btn.text(origText).prop('disabled', false);
+                    $('#n-success').text("An error occurred. Please try again.").css('color', 'red').slideDown("slow");
+                    setTimeout(function () {
+                        $("#n-success").slideUp("slow");
+                    }, 4000);
+                }
+            });
         });
     }
 

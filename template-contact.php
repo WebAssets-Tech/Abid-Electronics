@@ -101,7 +101,7 @@ get_header(); ?>
                             <h2>Send Us A Message</h2>
                             <p>Fill out the details below and our technician will contact you shortly.</p>
                         </div>
-                        <form class="contact-form contact-validation-active" id="contact-form" method="post" action="<?php echo esc_url(get_template_directory_uri() . '/mail-contact.php'); ?>">
+                        <form class="contact-form contact-validation-active" id="contact-form" method="post" action="">
                             <div class="input-item">
                                 <input id="name" name="name" class="fild" type="text" placeholder="Your Full Name*" required>
                                 <label for="name"><i class="flaticon-user"></i></label>

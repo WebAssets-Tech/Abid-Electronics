@@ -330,7 +330,8 @@ $inc_files = [
     '/inc/brand-functions.php',
     '/inc/homepage-customizer.php',
     '/inc/team-functions.php',
-    '/inc/seo-functions.php'
+    '/inc/seo-functions.php',
+    '/inc/leads-manager.php'
 ];
 
 foreach ($inc_files as $file) {

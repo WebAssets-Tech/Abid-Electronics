@@ -26,7 +26,7 @@ get_header(); ?>
                 <h2 class="poort-text poort-in-right">Need Same-Day Doorstep Appliance Repair? We’re just a call or booking away.</h2>
                 <p>Select your appliance service, provide your contact details, and our certified technician will visit your location anywhere across Srinagar.</p>
             </div>
-            <form method="post" class="contact-validation-active" id="contact-form-main" action="<?php echo esc_url(get_template_directory_uri() . '/mail-contact.php'); ?>">
+            <form method="post" class="contact-validation-active" id="contact-form-main" action="">
                 <div class="row">
                     <div class="col col-lg-6 col-md-6 col-12">
                         <input type="text" class="form-control" name="name" id="name" placeholder="Full Name*" required>

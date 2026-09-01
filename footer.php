@@ -26,13 +26,14 @@
                             <div class="item widget-newsletter fade_bottom">
                                 <h2>Get your appliance fixed today</h2>
                                 <div class="newsletter">
-                                    <form class="form-fild">
+                                    <form id="newsletter-form" class="form-fild">
                                         <div class="input-items">
-                                            <input class="fild" type="email" placeholder="Email Address" required>
+                                            <input class="fild" type="email" name="email" placeholder="Email Address" required>
                                         </div>
                                         <div class="input-btn">
                                             <button type="submit" class="theme-btn-s2">Sign Up</button>
                                         </div>
+                                        <div id="n-success" style="display: none; margin-top: 10px; font-size: 13px; font-weight: 500;"></div>
                                     </form>
                                 </div>
 
