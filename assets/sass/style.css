@@ -13316,3 +13316,74 @@ img {
     transform: rotate(0deg);
   }
 }
+
+/* ==========================================================================
+   Services Page & Card Image Stretching Fix
+   ========================================================================== */
+.wpo-service-section-s2 .service-wrap,
+.wpo-service-section-s3 .service-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+    min-height: 440px !important;
+    border-radius: 28px !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+.wpo-service-section-s2 .service-wrap .service-item,
+.wpo-service-section-s3 .service-wrap .service-item {
+    flex: 1 1 auto !important;
+    padding-bottom: 25px !important;
+}
+
+.wpo-service-section-s2 .service-wrap .service-item h3,
+.wpo-service-section-s3 .service-wrap .service-item h3 {
+    margin-bottom: 12px !important;
+}
+
+.wpo-service-section-s2 .service-wrap .image,
+.wpo-service-section-s3 .service-wrap .image {
+    width: 100% !important;
+    height: 250px !important;
+    max-height: 250px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    border-top-right-radius: 28px !important;
+    border-top-left-radius: 28px !important;
+    margin-top: auto !important;
+    background-color: #E5E7EB !important;
+}
+
+.wpo-service-section-s2 .service-wrap .image img,
+.wpo-service-section-s3 .service-wrap .image img,
+.wpo-service-section-s2 .service-wrap .image picture img,
+.wpo-service-section-s3 .service-wrap .image picture img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 250px !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    display: block !important;
+    border-top-right-radius: 28px !important;
+    border-top-left-radius: 28px !important;
+    transform: scale(1) !important;
+    transition: transform 0.5s ease-in-out !important;
+}
+
+.wpo-service-section-s2 .service-wrap:hover .image img,
+.wpo-service-section-s2 .service-wrap.active .image img,
+.wpo-service-section-s3 .service-wrap:hover .image img,
+.wpo-service-section-s3 .service-wrap.active .image img {
+    transform: scale(1.08) !important;
+}
+
+/* Accordion Service Images on Homepage/About */
+.wpo-service-section .service-wrap .service-items .service-expanded .service-image,
+.wpo-service-section .service-wrap .service-items .service-expanded img.service-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+}
