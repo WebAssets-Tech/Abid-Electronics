@@ -1,0 +1,134 @@
+.service-sidebar {
+    margin-right: 10px;
+
+    @media (max-width:1199px) {
+        margin: 0;
+    }
+
+    @media (max-width: 991px) {
+        margin-top: 50px;
+        max-width: 450px;
+    }
+}
+
+.service-catagory ul li {
+    margin-bottom: 13px;
+}
+
+.service-catagory ul li a {
+    border-radius: 12px;
+    background: rgba(98, 116, 255, 0.06);
+    color: $heading-color;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 20px 40px;
+    display: block;
+    transition: all .3s ease-in-out;
+    border-radius: 10px;
+    position: relative;
+
+    @media (max-width:575px) {
+        padding: 10px 20px;
+    }
+
+    i {
+        width: 32px;
+        height: 32px;
+        line-height: 36px;
+        text-align: center;
+        color: $theme-primary-color;
+        margin-right: 20px;
+
+        @media (max-width:575px) {
+            margin-right: 10px;
+        }
+    }
+
+    &::before {
+        position: absolute;
+        right: 40px;
+        top: 33px;
+        transform: translateY(-50%);
+        content: "\f123";
+        font-family: flaticon_fixaroo;
+        transition: all .3s ease-in-out;
+        color: $text-color;
+
+        @media (max-width:575px) {
+            right: 20px;
+        }
+    }
+
+    &:hover,
+    &.active {
+        background: $theme-primary-color;
+        color: $white;
+
+        &::before {
+            color: $white;
+        }
+
+    }
+}
+
+.service-info {
+    padding: 40px 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: 40px;
+    border-radius: 8px;
+    background: rgb(131 136 173 / 6%);
+    position: relative;
+    z-index: 1;
+    border-radius: 14px;
+    overflow: hidden;
+
+
+    .icon {
+        width: 88px;
+        height: 76px;
+        line-height: 76px;
+        border-radius: 4px;
+        background: $white;
+        color: $theme-primary-color;
+        font-size: 35px;
+        display: inline-block;
+        margin-bottom: 30px;
+    }
+
+
+    h2 {
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 36px;
+        max-width: 244px;
+        margin: 0 auto;
+        margin-bottom: 40px;
+    }
+
+    span {
+        font-family: $heading-font;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 32px;
+        letter-spacing: 1.95px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .num {
+        span {
+            border-radius: 24px;
+            background: $theme-primary-color;
+            color: $white;
+            text-align: center;
+            font-family: $heading-font;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 32px;
+            display: block;
+            padding: 8px 10px;
+        }
+    }
+}

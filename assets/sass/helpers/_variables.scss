@@ -1,0 +1,51 @@
+/*---------------------------
+	Fonts
+----------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+
+
+@font-face {
+	font-family: 'Satoshi';
+	src: url('../fonts/Satoshi-Bold.woff2') format('woff2'),
+		url('../fonts/Satoshi-Bold.woff') format('woff'),
+		url('../fonts/Satoshi-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Satoshi';
+	src: url('../fonts/Satoshi-Medium.woff2') format('woff2'),
+		url('../fonts/Satoshi-Medium.woff') format('woff'),
+		url('../fonts/Satoshi-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-display: swap;
+	font-style: normal;
+}
+
+// fonts
+$base-font-size: 18;
+$base-font: "Satoshi";
+$heading-font: "Parkinsans";
+
+
+// color
+$dark-gray: #0E152B; //
+$body-color: #032532;
+$white: #fff; //
+$light: #8188a9;
+$black: #000; //
+$small-black: #F4F6F8; //
+$cyan: #268A66; //
+
+$theme-primary-color: #3860D2; //
+$theme-primary-color-s2: #00CC83; //
+$theme-primary-hover-color: #0e1fb9; //
+$body-bg-color: #fff; //
+$section-bg-color: #E5F4DC; //
+$text-color: #4B5563; //
+$text-light-color: #676767;
+$heading-color: #0E152B; //
+$border-color: #2C2E34; //
+$border-color-s2: #DEDEDE; //

@@ -1,0 +1,144 @@
+.theme-btn,
+.theme-btn-s2,
+.theme-btn-s3 {
+	background: $theme-primary-color;
+	color: $white;
+	display: inline-block;
+	padding: 21px 50px;
+	border: 0;
+	text-transform: capitalize;
+	-webkit-backface-visibility: hidden;
+	z-index: 1;
+	position: relative;
+	font-family: $base-font;
+	border-radius: 43px;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: normal;
+	text-transform: capitalize;
+	overflow: hidden;
+	padding-right: 58px;
+
+	&::after {
+		background-color: darken($theme-primary-color, 11);
+		content: "";
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		transform: scaleY(0);
+		transform-origin: bottom left;
+		transition: transform .5s cubic-bezier(.86, 0, .07, 1);
+		transition-timing-function: cubic-bezier(.86, 0, .07, 1);
+		width: 100%;
+		z-index: -1;
+	}
+
+	&::before {
+		position: absolute;
+		right: 45px;
+		top: 52%;
+		transform: translateY(-50%);
+		content: "";
+		transition: all .3s;
+		color: $white;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		&::before {
+
+
+			@include media-query(767px) {
+				right: 25px;
+			}
+		}
+	}
+
+	&:hover {
+		&::after {
+			transform-origin: top right;
+			transform: scale(1);
+		}
+	}
+
+	@include media-query(767px) {
+		padding: 15px 30px;
+		font-size: 14px;
+		padding-right: 40px;
+	}
+}
+
+.theme-btn-s2 {
+	background-color: $theme-primary-color;
+	color: $white;
+
+	&::before {
+		content: "\e649";
+		font-family: 'themify';
+		font-size: 10px;
+		transition: all ease .4s;
+
+		@include media-query(767px) {
+			right: 28px;
+			// top: 50%;
+		}
+	}
+
+	&::after {
+		background-color: darken($theme-primary-color, 9);
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $white;
+
+		&::before {
+			right: 40px;
+
+			@include media-query(767px) {
+				right: 23px;
+			}
+		}
+	}
+}
+
+.theme-btn-s3 {
+	background: transparent;
+	box-shadow: none;
+	padding-left: 30px;
+	color: $black;
+
+	&::before {
+		background: url(../images/black-arrow.svg);
+		width: 17.684px;
+		height: 13.073px;
+		background-size: contain;
+		background-repeat: no-repeat;
+		right: 35px;
+
+		@include media-query(767px) {
+			right: 18px;
+		}
+	}
+
+	&:after {
+		display: none;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $black;
+
+		&::before {
+			right: 31px;
+
+			@include media-query(767px) {
+				right: 12px;
+			}
+		}
+	}
+}

@@ -1,0 +1,127 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+Theme Name:   Fixaroo - Electricity Services HTML Template
+Version:        1.0.0
+-------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+
+1. General
+	1.1 Theme Reset Style
+	1.2 Global Elements
+
+2. header
+	2.1 navigation 
+
+3. content
+	3.1 wpo-hero-slider
+	3.2 wpo-about-section
+	3.3 marquee-section
+	3.4 wpo-service-section
+	3.5 wpo-feature-section
+	3.6 wpo-video-section
+	3.7 wpo-odometer-section
+	3.8 wpo-project-section
+	3.9 wpo-history-section
+	3.10 wpo-faq-section
+	3.11 wpo-brand-partner-section
+	3.12 text-marquee
+	3.13 wpo-testimonial-section
+	3.14 wpo-cta-section
+	3.15 wpo-blog-section
+
+4. wpo-footer
+
+5. Home-style-2
+   5.1 wpo-about-section-s2
+   5.2 marquee-section-s2
+   5.3 wpo-service-section-s2
+   5.4 wpo-team-section
+   5.5 wpo-project-section-s2
+   5.6 wpo-brand-partner-section-s2
+   5.7 wpo-blog-section-s2
+
+6. Home-style-3
+   6.1 wpo-about-section-s3
+   6.2 wpo-service-section-s3
+   6.3 wpo-project-section-s3
+   6.4 wpo-odometer-section-s2
+   6.5 wpo-odometer-section-s2
+
+7. service-single-page
+
+8. wpo-booking-section
+
+9. shop-page
+
+10. shop-single-page
+
+11. cart-page-style
+
+12. checkout-page-style
+
+13. wpo-team-single
+
+14. contact-page
+
+15. blog-pg-section
+
+16. blog-single-section
+
+17. error-404-section
+
+
+----------------------------------------------------------------*/
+
+
+/*------------------------------------------------------------------
+1. General
+----------------------------------------------------------------*/
+
+// helpers
+@import "helpers/variables";
+@import "helpers/functions";
+@import "helpers/mixins";
+
+// base
+@import "base/base";
+
+
+// components
+@import "components/section-title";
+@import "components/buttons";
+@import "components/form";
+@import "components/social-links";
+@import "components/page-title";
+@import "components/preloader";
+@import "components/blog-sidebar";
+@import "components/pagination";
+@import "components/services-sidber";
+
+// layout
+@import "layout/header";
+@import "layout/hero-slider";
+@import "layout/footer";
+
+// components
+@import "components/sticky-header";
+
+
+// page
+@import "page/home-default";
+@import "page/_home-style2";
+@import "page/_home-style3";
+@import "page/_project-single";
+@import "page/_appoinment";
+@import "page/_shop";
+@import "page/_shop-single";
+@import "page/_checkout";
+@import "page/_cart";
+@import "page/_team-single";
+@import "page/_service-single";
+@import "page/_contact";
+@import "page/_blog";
+@import "page/_blog-single";
+@import "page/_error-404";

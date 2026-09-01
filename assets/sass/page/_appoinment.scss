@@ -1,0 +1,108 @@
+/*--------------------------------------------------------------
+8. wpo-booking-section
+--------------------------------------------------------------*/
+.wpo-booking-section {
+    .wpo-contact-form-area {
+        padding: 75px 70px;
+        max-width: 1196px;
+        margin: 0 auto;
+        background: #F1F4EF;
+        border-radius: 20px;
+        border-radius: 6px;
+        border: 1px solid #EBEBEE;
+        background: #FFF;
+        box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.06);
+
+        @media(max-width:1399px) {
+            padding: 55px 30px;
+        }
+
+        @media(max-width:767px) {
+            padding-bottom: 30px;
+        }
+
+        @media(max-width:575px) {
+            padding: 45px 20px 30px;
+        }
+
+        .col {
+            padding: 0 7px;
+        }
+
+        .form-control {
+            width: 100%;
+            height: 64px;
+            margin-bottom: 16px;
+            border: 0;
+            border: none;
+            border-radius: 9px;
+            background: rgb(131 136 173 / 6%);
+            color: #0E152B;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 50px;
+
+            @media(max-width:575px) {
+                height: 55px;
+            }
+
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+        }
+
+        .theme-btn {
+            width: 100%;
+            padding: 20px 50px;
+            margin-top: 24px;
+            border-radius: 11px;
+            background: $theme-primary-color;
+            box-shadow: -2px -2px 4px 0px rgba(0, 0, 0, 0.12) inset;
+
+            &:before {
+                display: none;
+            }
+        }
+
+        .form-control {
+            &::-webkit-input-placeholder {
+                /* Edge */
+                color: $dark-gray;
+            }
+
+            &:-ms-input-placeholder {
+                /* Internet Explorer 10-11 */
+                color: $dark-gray;
+            }
+
+            &::placeholder {
+                color: $dark-gray;
+            }
+        }
+
+        textarea.form-control {
+            height: 130px;
+
+            @media(max-width:575px) {
+                height: 105px;
+            }
+        }
+
+        select.form-control {
+            color: $dark-gray;
+            -webkit-appearance: none;
+            -ms-appearance: none;
+            -o-appearance: none;
+            appearance: none;
+            -moz-appearance: none;
+            background: rgb(131 136 173 / 6%) url(../images/select-icon.png) no-repeat calc(100% - 15px) center;
+            position: relative;
+        }
+
+        .contact-validation-active label.error {
+            margin-top: -8px;
+            margin-bottom: 20px;
+        }
+    }
+}
