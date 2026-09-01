@@ -128,7 +128,42 @@ get_header(); ?>
         </div>
     </div>
 </section>
-<!-- end about company main profile section -->
+<!-- start about company main profile section -->
+
+<!-- start certifications section -->
+<section class="wpo-certifications-section section-padding pb-0">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-12 col-12 text-center">
+                <div class="section-title mb-4 wow fadeInUp" data-wow-duration="1000ms">
+                    <span class="sub-title d-block mb-2 text-primary fw-bold" style="letter-spacing: 1px;">Recognized & Registered</span>
+                    <h2 class="mb-3">Government Registrations & Certifications</h2>
+                    <p class="text-muted">Abid Electronics Service Hub is a fully registered and certified appliance repair business, recognized by the Government of Jammu & Kashmir and the Ministry of MSME, Government of India.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-5 col-md-6 col-12 mb-4 wow fadeInLeft" data-wow-duration="1200ms">
+                <div class="certificate-card bg-white p-3 shadow-sm rounded-3 text-center border" style="transition: transform 0.3s ease;">
+                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/about/certificate-1.jpg" alt="J&K Shops & Establishment Certificate" class="img-fluid rounded border" style="max-height: 400px; object-fit: contain;">
+                    <h4 class="mt-3 mb-1" style="font-size: 16px; font-weight: 700;">J&K Shops & Establishment Act 1966</h4>
+                    <p class="text-muted mb-0" style="font-size: 13px;">Registration Certificate</p>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 col-12 mb-4 wow fadeInRight" data-wow-duration="1200ms">
+                <div class="certificate-card bg-white p-3 shadow-sm rounded-3 text-center border" style="transition: transform 0.3s ease;">
+                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/about/certificate-2.jpg" alt="MSME Udyam Registration Certificate" class="img-fluid rounded border" style="max-height: 400px; object-fit: contain;">
+                    <h4 class="mt-3 mb-1" style="font-size: 16px; font-weight: 700;">MSME Udyam Registration</h4>
+                    <p class="text-muted mb-0" style="font-size: 13px;">Government of India</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+.certificate-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important; }
+</style>
+<!-- end certifications section -->
 
 <!-- start about section -->
 <section class="wpo-about-section">
