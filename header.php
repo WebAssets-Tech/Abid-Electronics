@@ -23,56 +23,6 @@
             href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/favicon.png">
     <?php endif; ?>
 
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Abid Electronics Service Hub",
-      "image": "<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.svg",
-      "@id": "<?php echo esc_url(home_url('/')); ?>",
-      "url": "<?php echo esc_url(home_url('/')); ?>",
-      "telephone": "+919622917697",
-      "priceRange": "₹₹",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Bemina Crossing, Chattabal",
-        "addressLocality": "Srinagar",
-        "postalCode": "190001",
-        "addressRegion": "Jammu and Kashmir",
-        "addressCountry": "IN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 34.0839326,
-        "longitude": 74.7875588
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "opens": "09:00",
-        "closes": "20:00"
-      },
-      "sameAs": [
-        "https://www.facebook.com",
-        "https://www.instagram.com"
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "337"
-      }
-    }
-    </script>
-
     <!-- Theme CSS Dependencies -->
     <link href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/css/themify-icons.css" rel="stylesheet">
     <link href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/css/flaticon_fixaroo.css" rel="stylesheet">

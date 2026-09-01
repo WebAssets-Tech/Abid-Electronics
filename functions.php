@@ -320,7 +320,7 @@ if (file_exists(get_template_directory() . '/webassets-ai-assistant/wordpress-in
     require_once get_template_directory() . '/webassets-ai-assistant/wordpress-integration.php';
 }
 
-// Including standard CPTs
+// Including standard CPTs & SEO Engine
 $inc_files = [
     '/inc/service-functions.php',
     '/inc/location-functions.php',
@@ -329,7 +329,8 @@ $inc_files = [
     '/inc/faq-functions.php',
     '/inc/brand-functions.php',
     '/inc/homepage-customizer.php',
-    '/inc/team-functions.php'
+    '/inc/team-functions.php',
+    '/inc/seo-functions.php'
 ];
 
 foreach ($inc_files as $file) {
