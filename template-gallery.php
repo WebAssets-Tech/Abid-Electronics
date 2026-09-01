@@ -45,7 +45,8 @@ get_header(); ?>
                         $media_type = get_post_meta(get_the_ID(), '_gallery_media_type', true);
                         $video_url  = get_post_meta(get_the_ID(), '_gallery_video_url', true);
                         $is_video   = ($media_type === 'video' && !empty($video_url));
-                        $full_img_url = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : (get_template_directory_uri() . '/assets/images/project/' . (($item_idx % 8) + 1) . '.jpg');
+                        $fallback_idx = (($item_idx - 1) % 6) + 1;
+                        $full_img_url = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'full') : (get_template_directory_uri() . '/assets/images/project/' . $fallback_idx . '.jpg');
                         $target_url = $is_video ? $video_url : $full_img_url;
                         $btn_class  = $is_video ? 'video-btn d-block' : 'fancybox d-block';
                         $group_attr = $is_video ? '' : 'data-fancybox-group="gallery"';

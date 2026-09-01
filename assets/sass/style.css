@@ -13387,3 +13387,91 @@ img {
     object-fit: cover !important;
     object-position: center top !important;
 }
+
+/* ==========================================================================
+   Work Gallery Hover Card Text & Overlay Fix
+   ========================================================================== */
+.wpo-project-section-s2 .project-wrap .project-items .project-image,
+.project-items .project-image {
+    position: relative !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    height: 280px !important;
+    background-color: #1F2937 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+}
+
+.wpo-project-section-s2 .project-wrap .project-items .project-image img,
+.project-items .project-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 20px !important;
+    display: block !important;
+    transform: scale(1) !important;
+    transition: transform 0.5s ease-in-out !important;
+}
+
+.wpo-project-section-s2 .project-wrap .project-items .project-image::before,
+.project-items .project-image::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(10, 25, 60, 0.88) 100%) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.4s ease-in-out !important;
+    z-index: 2 !important;
+    border-radius: 20px !important;
+}
+
+.wpo-project-section-s2 .project-wrap .project-items .project-image:hover::before,
+.project-items .project-image:hover::before {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.wpo-project-section-s2 .project-wrap .project-items .project-image:hover img,
+.project-items .project-image:hover img {
+    transform: scale(1.08) !important;
+}
+
+.wpo-project-section-s2 .project-wrap .project-items .project-image .project-text,
+.project-items .project-image .project-text {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 16px 20px !important;
+    text-align: center !important;
+    z-index: 3 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.4s ease-in-out !important;
+}
+
+.wpo-project-section-s2 .project-wrap .project-items .project-image:hover .project-text,
+.project-items .project-image:hover .project-text {
+    bottom: 12px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.wpo-project-section-s2 .project-wrap .project-items .project-image .project-text h3,
+.wpo-project-section-s2 .project-wrap .project-items .project-image .project-text h3 a,
+.wpo-project-section-s2 .project-wrap .project-items .project-text h3,
+.wpo-project-section-s2 .project-wrap .project-items .project-text h3 a,
+.project-items .project-text h3,
+.project-items .project-text h3 a,
+.project-items .project-image h3 {
+    color: #ffffff !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 24px !important;
+    margin: 0 !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+}
