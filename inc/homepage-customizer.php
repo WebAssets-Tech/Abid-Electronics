@@ -20,7 +20,7 @@ function homepage_customize_register($wp_customize) {
     $wp_customize->add_setting('hero_btn1_text', ['default' => 'Book An Appointment', 'sanitize_callback' => 'sanitize_text_field']);
     $wp_customize->add_control('hero_btn1_text', ['label' => 'Button 1 Text', 'section' => 'hero_section', 'type' => 'text']);
     
-    $wp_customize->add_setting('hero_btn1_link', ['default' => 'contact.html', 'sanitize_callback' => 'esc_url_raw']);
+    $wp_customize->add_setting('hero_btn1_link', ['default' => '', 'sanitize_callback' => 'esc_url_raw']);
     $wp_customize->add_control('hero_btn1_link', ['label' => 'Button 1 Link', 'section' => 'hero_section', 'type' => 'url']);
     
     $wp_customize->add_setting('hero_btn2_text', ['default' => 'Call 9622917697', 'sanitize_callback' => 'sanitize_text_field']);
@@ -81,7 +81,7 @@ function homepage_customize_register($wp_customize) {
     $wp_customize->add_control('bottom_marquee_text', ['label' => 'Bottom Marquee Text', 'section' => 'marquee_section', 'type' => 'text']);
     $wp_customize->add_setting('bottom_marquee_btn_text', ['default' => 'Book Now', 'sanitize_callback' => 'sanitize_text_field']);
     $wp_customize->add_control('bottom_marquee_btn_text', ['label' => 'Bottom Marquee Button Text', 'section' => 'marquee_section', 'type' => 'text']);
-    $wp_customize->add_setting('bottom_marquee_btn_link', ['default' => 'contact.html', 'sanitize_callback' => 'esc_url_raw']);
+    $wp_customize->add_setting('bottom_marquee_btn_link', ['default' => '', 'sanitize_callback' => 'esc_url_raw']);
     $wp_customize->add_control('bottom_marquee_btn_link', ['label' => 'Bottom Marquee Button Link', 'section' => 'marquee_section', 'type' => 'url']);
 
     // SERVICES SECTION
@@ -97,7 +97,7 @@ function homepage_customize_register($wp_customize) {
     $wp_customize->add_control('services_desc', ['label' => 'Description', 'section' => 'services_section_settings', 'type' => 'textarea']);
     $wp_customize->add_setting('services_btn_text', ['default' => 'Book An Appointment', 'sanitize_callback' => 'sanitize_text_field']);
     $wp_customize->add_control('services_btn_text', ['label' => 'Bottom Button Text', 'section' => 'services_section_settings', 'type' => 'text']);
-    $wp_customize->add_setting('services_btn_link', ['default' => 'contact.html', 'sanitize_callback' => 'esc_url_raw']);
+    $wp_customize->add_setting('services_btn_link', ['default' => '', 'sanitize_callback' => 'esc_url_raw']);
     $wp_customize->add_control('services_btn_link', ['label' => 'Bottom Button Link', 'section' => 'services_section_settings', 'type' => 'url']);
 
     // WHY CHOOSE US / FEATURES
@@ -127,7 +127,7 @@ function homepage_customize_register($wp_customize) {
         ]));
         $wp_customize->add_setting("feature_text_$i", ['default' => $default_features[$i], 'sanitize_callback' => 'sanitize_text_field']);
         $wp_customize->add_control("feature_text_$i", ['label' => "Feature $i Text", 'section' => 'features_section', 'type' => 'text']);
-        $wp_customize->add_setting("feature_link_$i", ['default' => 'contact.html', 'sanitize_callback' => 'esc_url_raw']);
+        $wp_customize->add_setting("feature_link_$i", ['default' => '', 'sanitize_callback' => 'esc_url_raw']);
         $wp_customize->add_control("feature_link_$i", ['label' => "Feature $i Link", 'section' => 'features_section', 'type' => 'url']);
     }
 

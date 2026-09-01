@@ -14,7 +14,7 @@ $hero_style = $hero_bg ? "style=\"background-image: url('" . esc_url($hero_bg) .
                                 <li><a href="<?php echo esc_url(get_theme_mod('hero_phone_link', 'tel:+919622917697')); ?>"><i class="flaticon-phone"></i><?php echo esc_html(get_theme_mod('hero_phone', '+91 9622917697')); ?></a></li>
                                 <li><a href="<?php echo esc_url(get_theme_mod('hero_whatsapp_link', 'https://wa.me/919622917697')); ?>"><i class="flaticon-phone"></i>WhatsApp Us</a>
                                 </li>
-                                <li><a href="<?php echo esc_url(get_theme_mod('hero_bookonline_link', 'contact.html')); ?>"><i class="flaticon-bag"></i>Book online</a></li>
+                                <li><a href="<?php echo esc_url(get_theme_mod('hero_bookonline_link', home_url('/book-appointment-and-service/'))); ?>"><i class="flaticon-bag"></i>Book online</a></li>
                             </ul>
                         </div>
                     </div>
@@ -26,7 +26,7 @@ $hero_style = $hero_bg ? "style=\"background-image: url('" . esc_url($hero_bg) .
                             <h2><?php echo wp_kses_post(get_theme_mod("hero_subheadline", "5-Star Rated, <br><span>Same-Day</span> Doorstep Service, <br>All Brands & <span>Appliances</span>")); ?></h2>
                         </div>
                         <div class="hero-btns wow fadeInUp" data-wow-delay="0.6s">
-                            <a href="<?php echo esc_url(get_theme_mod('hero_btn1_link', 'contact.html')); ?>" class="theme-btn-s2"><?php echo esc_html(get_theme_mod('hero_btn1_text', 'Book An Appointment')); ?></a>
+                            <a href="<?php echo esc_url(get_theme_mod('hero_btn1_link', home_url('/book-appointment-and-service/'))); ?>" class="theme-btn-s2"><?php echo esc_html(get_theme_mod('hero_btn1_text', 'Book An Appointment')); ?></a>
                             <a href="<?php echo esc_url(get_theme_mod('hero_btn2_link', 'tel:+919622917697')); ?>" class="theme-btn-s3"><span class="rolling-text"><?php echo esc_html(get_theme_mod('hero_btn2_text', 'Call 9622917697')); ?></span></a>
                         </div>
 
@@ -223,7 +223,7 @@ $hero_style = $hero_bg ? "style=\"background-image: url('" . esc_url($hero_bg) .
                       </svg>
                   </div>
                   <div class="service-btn">
-                      <a href="<?php echo esc_url(get_theme_mod('services_btn_link', 'contact.html')); ?>" class="theme-btn-s2"><?php echo esc_html(get_theme_mod('services_btn_text', 'Book An Appointment')); ?></a>
+                      <a href="<?php echo esc_url(get_theme_mod('services_btn_link', home_url('/book-appointment-and-service/'))); ?>" class="theme-btn-s2"><?php echo esc_html(get_theme_mod('services_btn_text', 'Book An Appointment')); ?></a>
                   </div>
                   <div class="box"></div>
                   <div class="box-2"></div>
@@ -255,7 +255,7 @@ $feature_defaults = [
 ];
 for ($i = 1; $i <= 6; $i++):
     $f_text = get_theme_mod("feature_text_$i", $feature_defaults[$i - 1]);
-    $f_link = get_theme_mod("feature_link_$i", 'contact.html');
+    $f_link = get_theme_mod("feature_link_$i", home_url('/book-appointment-and-service/'));
     $f_img  = get_theme_mod("feature_image_$i") ?: esc_url(get_template_directory_uri()) . "/assets/images/feature/$i.svg";
     if (! $f_text) {
         continue;
@@ -352,7 +352,7 @@ for ($i = 1; $i <= 4; $i++):
                         </div>
                         <div class="col-lg-5 col-12">
                             <div class="title-btn-right wow fadeInRightSlow" data-wow-duration="1000ms">
-                                <a href="<?php echo esc_url(get_theme_mod('gallery_btn_link', 'contact.html')); ?>" class="theme-btn-s2"><?php echo esc_html(get_theme_mod('gallery_btn_text', 'Book An Appointment')); ?></a>
+                                <a href="<?php echo esc_url(get_theme_mod('gallery_btn_link', home_url('/book-appointment-and-service/'))); ?>" class="theme-btn-s2"><?php echo esc_html(get_theme_mod('gallery_btn_text', 'Book An Appointment')); ?></a>
                             </div>
                         </div>
                     </div>
@@ -443,7 +443,7 @@ for ($i = 1; $i <= 4; $i++):
                                     <h2 class="poort-text poort-in-right"><?php echo esc_html(get_theme_mod('faq_title', 'Frequently Asked Questions')); ?></h2>
                                     <p><?php echo esc_html(get_theme_mod('faq_desc', 'Got questions about our appliance repair services? Find answers to the most common queries below.')); ?></p>
                                 </div>
-                                <a href="<?php echo esc_url(get_theme_mod('faq_btn_link', 'contact.html')); ?>" class="theme-btn-s2"><?php echo esc_html(get_theme_mod('faq_btn_text', 'Book An Appointment')); ?></a>
+                                <a href="<?php echo esc_url(get_theme_mod('faq_btn_link', home_url('/book-appointment-and-service/'))); ?>" class="theme-btn-s2"><?php echo esc_html(get_theme_mod('faq_btn_text', 'Book An Appointment')); ?></a>
                             </div>
                         </div>
                         <div class="col-lg-6 col-12">
@@ -528,7 +528,7 @@ for ($i = 1; $i <= 4; $i++):
                         </h2>
                     </div>
                 </div>
-                <div class="booking-btn moving-cursor"><a class="btn-wrapper btn-move" href="<?php echo esc_url(get_theme_mod('bottom_marquee_btn_link', 'contact.html')); ?>"><small><?php echo esc_html(get_theme_mod('bottom_marquee_btn_text', 'Book Now')); ?></small></a></div>
+                <div class="booking-btn moving-cursor"><a class="btn-wrapper btn-move" href="<?php echo esc_url(get_theme_mod('bottom_marquee_btn_link', home_url('/book-appointment-and-service/'))); ?>"><small><?php echo esc_html(get_theme_mod('bottom_marquee_btn_text', 'Book Now')); ?></small></a></div>
             </div>
         </section>
         <!-- end text-marquee -->
@@ -593,8 +593,8 @@ for ($i = 1; $i <= 4; $i++):
                         <h2><?php echo wp_kses_post(get_theme_mod("cta_subtitle", "Powering Your World Safely Efficiently & Reliably")); ?></h2>
                     </div>
                     <div class="cta-btns wow fadeInUp" data-wow-delay="0.4s">
-                        <a href="<?php echo esc_url(get_theme_mod('cta_btn1_link', 'contact.html')); ?>" class="theme-btn-s2"><?php echo esc_html(get_theme_mod('cta_btn1_text', 'Book An Appointment')); ?></a>
-                        <a href="<?php echo esc_url(get_theme_mod('cta_btn2_link', 'about.html')); ?>" class="theme-btn-s3"><span class="rolling-text"><?php echo esc_html(get_theme_mod('cta_btn2_text', 'Learn More')); ?></span></a>
+                        <a href="<?php echo esc_url(get_theme_mod('cta_btn1_link', home_url('/book-appointment-and-service/'))); ?>" class="theme-btn-s2"><?php echo esc_html(get_theme_mod('cta_btn1_text', 'Book An Appointment')); ?></a>
+                        <a href="<?php echo esc_url(get_theme_mod('cta_btn2_link', home_url('/about/'))); ?>" class="theme-btn-s3"><span class="rolling-text"><?php echo esc_html(get_theme_mod('cta_btn2_text', 'Learn More')); ?></span></a>
                     </div>
                     <div class="cta-content-shape wow fadeInLeftSlow" data-wow-duration="1200ms">
                         <svg xmlns="http://www.w3.org/2000/svg" width="755" height="450" viewBox="0 0 755 450"
@@ -625,7 +625,7 @@ for ($i = 1; $i <= 4; $i++):
                         </svg>
                     </div>
                 </div>
-                <div class="booking-btn"><a class="btn-wrapper moving-cursor" href="<?php echo esc_url(get_theme_mod('cta_getintouch_link', 'contact.html')); ?>"><small><i><img
+                <div class="booking-btn"><a class="btn-wrapper moving-cursor" href="<?php echo esc_url(get_theme_mod('cta_getintouch_link', home_url('/book-appointment-and-service/'))); ?>"><small><i><img
                                     src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/arrow-up.svg" alt="icon"></i>get in touch</small></a></div>
             </div>
         </section>

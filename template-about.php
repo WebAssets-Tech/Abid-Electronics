@@ -294,7 +294,7 @@ get_header(); ?>
             </svg>
         </div>
         <div class="service-btn">
-            <a href="<?php echo esc_url(get_theme_mod('services_btn_link', 'contact.html')); ?>" class="theme-btn-s2"><?php echo esc_html(get_theme_mod('services_btn_text', 'Book An Appointment')); ?></a>
+            <a href="<?php echo esc_url(get_theme_mod('services_btn_link', home_url('/book-appointment-and-service/'))); ?>" class="theme-btn-s2"><?php echo esc_html(get_theme_mod('services_btn_text', 'Book An Appointment')); ?></a>
         </div>
         <div class="box"></div>
         <div class="box-2"></div>
@@ -326,7 +326,7 @@ get_header(); ?>
                 ];
                 for ($i = 1; $i <= 6; $i++):
                     $f_text = get_theme_mod("feature_text_$i", $feature_defaults[$i - 1]);
-                    $f_link = get_theme_mod("feature_link_$i", 'contact.html');
+                    $f_link = get_theme_mod("feature_link_$i", home_url('/book-appointment-and-service/'));
                     $f_img  = get_theme_mod("feature_image_$i") ?: esc_url(get_template_directory_uri()) . "/assets/images/feature/$i.svg";
                     if (! $f_text) {
                         continue;
@@ -421,7 +421,7 @@ get_header(); ?>
                 </div>
                 <div class="col-lg-5 col-12">
                     <div class="title-btn-right wow fadeInRightSlow" data-wow-duration="1000ms">
-                        <a href="<?php echo esc_url(get_theme_mod('hero_btn1_link', 'contact.html')); ?>" class="theme-btn-s2">Book An Appointment</a>
+                        <a href="<?php echo esc_url(get_theme_mod('hero_btn1_link', home_url('/book-appointment-and-service/'))); ?>" class="theme-btn-s2">Book An Appointment</a>
                     </div>
                 </div>
             </div>
@@ -511,7 +511,7 @@ get_header(); ?>
                             <h2 class="poort-text poort-in-right">Frequently Asked Questions</h2>
                             <p>Got questions about pricing, warranty, or same-day repair visits? We've got answers.</p>
                         </div>
-                        <a href="<?php echo esc_url(get_theme_mod('hero_btn1_link', 'contact.html')); ?>" class="theme-btn-s2">Book An Appointment</a>
+                        <a href="<?php echo esc_url(get_theme_mod('hero_btn1_link', home_url('/book-appointment-and-service/'))); ?>" class="theme-btn-s2">Book An Appointment</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-12">
@@ -598,7 +598,7 @@ get_header(); ?>
             </div>
         </div>
         <div class="booking-btn moving-cursor">
-            <a class="btn-wrapper btn-move" href="<?php echo esc_url(get_theme_mod('bottom_marquee_btn_link', 'contact.html')); ?>">
+            <a class="btn-wrapper btn-move" href="<?php echo esc_url(get_theme_mod('bottom_marquee_btn_link', home_url('/book-appointment-and-service/'))); ?>">
                 <small><?php echo esc_html(get_theme_mod('bottom_marquee_btn_text', 'Book Now')); ?></small>
             </a>
         </div>
