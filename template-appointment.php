@@ -322,7 +322,7 @@ get_header(); ?>
 <!--end testimonial-section-->
 
 <!-- Start wpo-faq-section -->
-<section class="wpo-faq-section style-2 section-padding" style="background:#f8f9fa;">
+<section class="wpo-faq-section style-2 section-padding">
     <div class="container">
         <div class="wpo-faq-wrap">
             <div class="row">
@@ -348,7 +348,7 @@ get_header(); ?>
                                     $collapse_id = 'faqCollapse' . $faq_idx;
                                     $heading_id  = 'faqHeading' . $faq_idx;
                                     ?>
-                                    <div class="accordion-item mb-3 border">
+                                    <div class="accordion-item mb-3">
                                         <h3 class="accordion-header" id="<?php echo esc_attr($heading_id); ?>">
                                             <button class="accordion-button<?php echo $is_first ? '' : ' collapsed'; ?>" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#<?php echo esc_attr($collapse_id); ?>" aria-expanded="<?php echo $is_first ? 'true' : 'false'; ?>"
