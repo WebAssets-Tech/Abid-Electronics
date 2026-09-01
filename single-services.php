@@ -54,13 +54,13 @@ $book_link = get_theme_mod('hero_btn1_link', home_url('/book-appointment-and-ser
 
                     <!-- Immediate Conversion Action Bar -->
                     <div class="d-flex flex-wrap gap-3 my-4">
-                        <a href="tel:<?php echo esc_attr($clean_phone); ?>" class="theme-btn py-3 px-4 d-inline-flex align-items-center gap-2">
+                        <a href="tel:<?php echo esc_attr($clean_phone); ?>" class="btn d-inline-flex align-items-center justify-content-center gap-2 px-4 py-3 shadow-sm text-decoration-none" style="background-color: #0f172a; color: #ffffff !important; font-weight: 700; border-radius: 50px; font-size: 15px;">
                             <i class="ti-headphone-alt"></i> <span>Call: <?php echo esc_html($phone_num); ?></span>
                         </a>
-                        <a href="<?php echo esc_url($wa_link); ?>" target="_blank" class="theme-btn py-3 px-4 d-inline-flex align-items-center gap-2" style="background-color: #25D366; border-color: #25D366;">
+                        <a href="<?php echo esc_url($wa_link); ?>" target="_blank" class="btn d-inline-flex align-items-center justify-content-center gap-2 px-4 py-3 shadow-sm text-decoration-none" style="background-color: #25D366; color: #ffffff !important; font-weight: 700; border-radius: 50px; font-size: 15px;">
                             <i class="ti-comments"></i> <span>WhatsApp Us</span>
                         </a>
-                        <a href="<?php echo esc_url($book_link); ?>" class="theme-btn-s2 py-3 px-4 d-inline-flex align-items-center gap-2">
+                        <a href="<?php echo esc_url($book_link); ?>" class="btn d-inline-flex align-items-center justify-content-center gap-2 px-4 py-3 shadow-sm text-decoration-none" style="background-color: #3860D2; color: #ffffff !important; font-weight: 700; border-radius: 50px; font-size: 15px;">
                             <i class="ti-calendar"></i> <span>Book Appointment</span>
                         </a>
                     </div>
@@ -217,15 +217,21 @@ $book_link = get_theme_mod('hero_btn1_link', home_url('/book-appointment-and-ser
                     </div>
 
                     <!-- In-Content High Converting CTA Box -->
-                    <div class="service-booking-cta p-4 mt-5 rounded-3 bg-light border-start border-primary border-4 shadow-sm">
-                        <div class="row align-items-center">
-                            <div class="col-md-7 col-12">
-                                <h3 class="mb-1" style="font-size: 20px; font-weight: 700;">Need Fast <?php the_title(); ?>?</h3>
-                                <p class="mb-0 text-muted">Get your appliance inspected and repaired today by Srinagar's top-rated specialists.</p>
+                    <div class="service-booking-cta p-4 p-md-5 my-5 rounded-4 bg-white border shadow-sm" style="border-left: 5px solid #3860D2 !important;">
+                        <div class="row align-items-center g-3">
+                            <div class="col-lg-7 col-12 text-start">
+                                <h3 class="mb-2" style="font-size: 22px; font-weight: 800; color: #0f172a;">Need Fast <?php the_title(); ?>?</h3>
+                                <p class="mb-0 text-muted" style="font-size: 15px;">Get your appliance inspected and repaired today by Srinagar's top-rated specialists.</p>
                             </div>
-                            <div class="col-md-5 col-12 text-md-end mt-3 mt-md-0 d-flex flex-wrap gap-2 justify-content-md-end">
-                                <a href="tel:<?php echo esc_attr($clean_phone); ?>" class="theme-btn py-2 px-3"><i class="ti-headphone-alt me-1"></i> Call Now</a>
-                                <a href="<?php echo esc_url($book_link); ?>" class="theme-btn-s2 py-2 px-3">Book Online</a>
+                            <div class="col-lg-5 col-12">
+                                <div class="d-flex flex-wrap gap-3 justify-content-lg-end align-items-center">
+                                    <a href="tel:<?php echo esc_attr($clean_phone); ?>" class="btn d-inline-flex align-items-center justify-content-center gap-2 px-4 py-3 shadow-sm text-decoration-none" style="background-color: #0f172a; color: #ffffff !important; font-weight: 700; border-radius: 50px; font-size: 14px;">
+                                        <i class="ti-headphone-alt"></i> <span>Call Now</span>
+                                    </a>
+                                    <a href="<?php echo esc_url($book_link); ?>" class="btn d-inline-flex align-items-center justify-content-center gap-2 px-4 py-3 shadow-sm text-decoration-none" style="background-color: #3860D2; color: #ffffff !important; font-weight: 700; border-radius: 50px; font-size: 14px;">
+                                        <span>Book Online</span> <i class="ti-arrow-right"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
