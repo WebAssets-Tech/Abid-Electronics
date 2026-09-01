@@ -28,8 +28,12 @@ get_header(); ?>
         <div class="row">
             <div class="col col-lg-8 col-md-12 col-12">
                 <div class="blog-content">
-                    <?php if (have_posts()) : ?>
-                        <?php while (have_posts()) : the_post(); ?>
+                    <?php if (have_posts()) : 
+                        $blog_idx = 0;
+                        while (have_posts()) : the_post(); 
+                            $blog_idx++;
+                            $fallback_img_num = (($blog_idx - 1) % 6) + 1;
+                            ?>
                             <article id="post-<?php the_ID(); ?>" <?php post_class('post format-standard-image mb-5'); ?>>
                                 <div class="entry-media">
                                     <?php if (has_post_thumbnail()) : ?>
@@ -38,7 +42,7 @@ get_header(); ?>
                                         </a>
                                     <?php else : ?>
                                         <a href="<?php the_permalink(); ?>">
-                                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/blog/img-4.jpg" alt="<?php the_title_attribute(); ?>" class="img-fluid w-100 rounded-3">
+                                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/blog/img-<?php echo esc_attr($fallback_img_num); ?>.jpg" alt="<?php the_title_attribute(); ?>" class="img-fluid w-100 rounded-3">
                                         </a>
                                     <?php endif; ?>
                                     <span><?php echo get_the_date('d'); ?> <br> <?php echo get_the_date('M'); ?></span>
