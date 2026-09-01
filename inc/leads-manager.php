@@ -192,6 +192,7 @@ function wa_lead_details_callback($post) {
     $service = get_post_meta($post->ID, 'lead_service', true);
     $address = get_post_meta($post->ID, 'lead_address', true);
     $message = get_post_meta($post->ID, 'lead_message', true);
+    $appliance_img = get_post_meta($post->ID, 'lead_appliance_image', true);
 
     echo '<table class="form-table">';
     echo '<tr><th>Email:</th><td>' . esc_html($email) . ' <a href="mailto:'.esc_attr($email).'">Send Email</a></td></tr>';
@@ -201,6 +202,9 @@ function wa_lead_details_callback($post) {
         echo '<tr><th>Address:</th><td>' . esc_html($address) . '</td></tr>';
     }
     echo '<tr><th>Message / Note:</th><td>' . nl2br(esc_html($message)) . '</td></tr>';
+    if ($appliance_img) {
+        echo '<tr><th>Appliance Image:</th><td><a href="'.esc_url($appliance_img).'" target="_blank"><img src="'.esc_url($appliance_img).'" style="max-width:300px; display:block; border:1px solid #ccc; margin-top:10px;" /></a></td></tr>';
+    }
     echo '</table>';
 }
 
@@ -234,6 +238,22 @@ function wa_submit_lead_ajax() {
         update_post_meta($post_id, 'lead_address', $address);
         update_post_meta($post_id, 'lead_message', $note);
 
+        // Handle Image Upload if exists
+        $attachment_url = '';
+        if (!empty($_FILES['appliance_image']['name'])) {
+            if (!function_exists('wp_handle_upload')) {
+                require_once(ABSPATH . 'wp-admin/includes/file.php');
+            }
+            $uploadedfile = $_FILES['appliance_image'];
+            $upload_overrides = array('test_form' => false);
+            $movefile = wp_handle_upload($uploadedfile, $upload_overrides);
+
+            if ($movefile && !isset($movefile['error'])) {
+                $attachment_url = $movefile['url'];
+                update_post_meta($post_id, 'lead_appliance_image', $attachment_url);
+            }
+        }
+
         // Send Email Notification
         $to = get_option('wa_smtp_from_email', get_option('admin_email')); // Send to admin
         $subject = "New Lead: " . $post_title;
@@ -244,6 +264,7 @@ function wa_submit_lead_ajax() {
         $message .= "Service: " . $service . "\n";
         if (!empty($address)) $message .= "Address: " . $address . "\n";
         $message .= "\nMessage:\n" . $note . "\n";
+        if (!empty($attachment_url)) $message .= "\nAppliance Image: " . $attachment_url . "\n";
         $message .= "\nView in admin: " . admin_url('post.php?post=' . $post_id . '&action=edit');
 
         // Note: we can use $email in Reply-To
