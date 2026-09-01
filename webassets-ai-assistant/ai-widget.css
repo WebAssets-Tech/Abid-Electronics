@@ -1,0 +1,1845 @@
+/* 
+   Modular Conversational AI Assistant Stylesheet 
+   Package: webassets-ai-assistant
+   Aesthetics: Premium, Modern Glassmorphism, Theme Aligned 
+*/
+
+#ai-widget-container {
+    font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #3a3a3a;
+}
+
+/* 1. Floating Trigger Button */
+#chat-trigger {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #5f39ff 0%, #a23cff 100%);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(95, 57, 255, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    z-index: 999999;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation: triggerBreath 3s infinite ease-in-out;
+}
+
+@keyframes triggerBreath {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 10px 25px rgba(95, 57, 255, 0.35);
+    }
+
+    50% {
+        transform: scale(1.04);
+        box-shadow: 0 12px 30px rgba(95, 57, 255, 0.5);
+    }
+}
+
+#chat-trigger.voice-active {
+    background: linear-gradient(135deg, #20d9a1 0%, #5f39ff 100%) !important;
+    animation: triggerVoicePulse 1.5s infinite ease-in-out !important;
+}
+
+@keyframes triggerVoicePulse {
+    0% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 0 rgba(32, 217, 161, 0.6), 0 10px 25px rgba(95, 57, 255, 0.35);
+    }
+
+    70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 14px rgba(32, 217, 161, 0), 0 10px 25px rgba(95, 57, 255, 0.35);
+    }
+
+    100% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 0 rgba(32, 217, 161, 0), 0 10px 25px rgba(95, 57, 255, 0.35);
+    }
+}
+
+#chat-trigger:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 15px 30px rgba(95, 57, 255, 0.5);
+}
+
+#chat-trigger:active {
+    transform: scale(0.95);
+}
+
+#chat-trigger svg {
+    width: 26px;
+    height: 26px;
+    transition: transform 0.3s ease;
+}
+
+#chat-trigger.active {
+    animation: none !important;
+}
+
+#chat-trigger.active svg {
+    transform: rotate(90deg);
+}
+
+/* 2. Chat Panel (Glassmorphic) */
+#chat-panel {
+    position: fixed;
+    bottom: 105px;
+    right: 30px;
+    width: 380px;
+    height: 600px;
+    max-height: calc(100vh - 140px);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(95, 57, 255, 0.15);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    z-index: 999998;
+    overflow: hidden;
+    animation: slideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 3. Panel Header */
+.chat-header {
+    padding: 16px 20px;
+    background: linear-gradient(135deg, rgba(95, 57, 255, 0.04) 0%, rgba(32, 217, 161, 0.04) 100%);
+    border-bottom: 1px solid rgba(95, 57, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-header .agent-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.chat-header .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #5f39ff 0%, #20d9a1 100%);
+    color: #ffffff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    box-shadow: 0 4px 10px rgba(95, 57, 255, 0.2);
+}
+
+.chat-header .agent-details h4 {
+    margin: 0 0 2px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #13151b;
+}
+
+.chat-header .agent-details .status {
+    font-size: 11px;
+    color: #555860;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.chat-header .agent-details .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #20d9a1;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #20d9a1;
+}
+
+.chat-header .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chat-header .header-actions button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #555860;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.chat-header .header-actions button:hover {
+    background: rgba(95, 57, 255, 0.08);
+    color: #5f39ff;
+}
+
+.chat-header .header-actions button svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* 4. Chat Messages Body */
+#messages-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(244, 245, 248, 0.3);
+    min-height: 0;
+    /* Required for flex child scrolling */
+}
+
+/* Message Styles */
+.message {
+    max-width: 80%;
+    display: flex;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-content {
+    padding: 12px 16px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.user-message {
+    align-self: flex-end;
+}
+
+.user-message .message-content {
+    background: #5f39ff;
+    color: #ffffff;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 4px 12px rgba(95, 57, 255, 0.15);
+}
+
+.bot-message {
+    align-self: flex-start;
+}
+
+.bot-message .message-content {
+    background: #ffffff;
+    color: #3a3a3a;
+    border-bottom-left-radius: 4px;
+    border: 1px solid rgba(95, 57, 255, 0.06);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+.bot-message .message-content a {
+    color: #5f39ff;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.bot-message .message-content a:hover {
+    color: #20d9a1;
+}
+
+/* Suggestions Buttons Area */
+#suggestions-area {
+    padding: 10px 20px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-top: 1px solid rgba(95, 57, 255, 0.04);
+    background: rgba(255, 255, 255, 0.5);
+    scrollbar-width: none;
+    /* Hide scrollbar for Firefox */
+}
+
+#suggestions-area::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar for Chrome/Safari */
+}
+
+.suggest-btn {
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--tj-color-border-1, #e4e1ff);
+    background: #ffffff;
+    color: #5f39ff;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.suggest-btn:hover {
+    background: #5f39ff;
+    color: #ffffff;
+    border-color: #5f39ff;
+    transform: translateY(-1px);
+}
+
+/* 5. Chat Input Area */
+.chat-footer {
+    padding: 15px 20px;
+    background: #ffffff;
+    border-top: 1px solid rgba(95, 57, 255, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#chat-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    resize: none;
+    font-family: inherit;
+    font-size: 14px;
+    color: #3a3a3a;
+    max-height: 100px;
+    padding: 5px 0;
+}
+
+#chat-input::placeholder {
+    color: #a4a7b0;
+}
+
+.footer-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-buttons button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+#send-btn {
+    background: #5f39ff;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(95, 57, 255, 0.2);
+}
+
+#send-btn:hover {
+    background: #4822eb;
+    transform: scale(1.05);
+}
+
+#mic-btn {
+    background: rgba(95, 57, 255, 0.06);
+    color: #5f39ff;
+}
+
+#mic-btn:hover {
+    background: rgba(95, 57, 255, 0.12);
+}
+
+#mic-btn.listening {
+    background: #20d9a1;
+    color: #ffffff;
+    animation: pulseMic 1.2s infinite;
+}
+
+@keyframes pulseMic {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(32, 217, 161, 0.4);
+    }
+
+    70% {
+        transform: scale(1.08);
+        box-shadow: 0 0 0 8px rgba(32, 217, 161, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(32, 217, 161, 0);
+    }
+}
+
+.footer-buttons svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* 6. Dynamic Overlay Panel */
+#embed-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    z-index: 60;
+    display: flex;
+    flex-direction: column;
+    animation: slideInLeft 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.overlay-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(95, 57, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f4f5f8;
+    flex-shrink: 0;
+}
+
+.overlay-header span {
+    font-weight: 700;
+    font-size: 14px;
+    color: #13151b;
+}
+
+.overlay-header button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    color: #555860;
+}
+
+#overlay-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    min-height: 0;
+    /* Required for flex child scrolling */
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+/* Lead Collection Form Styling */
+#lead-overlay-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #13151b;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(95, 57, 255, 0.15);
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #5f39ff;
+}
+
+.submit-lead-btn {
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #5f39ff;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.submit-lead-btn:hover {
+    background: #4822eb;
+}
+
+/* Writing/Typing Indicator Animation */
+.indicator-bubbles {
+    display: flex;
+    gap: 4px;
+    padding: 12px 18px !important;
+}
+
+.indicator-bubbles .bubble {
+    width: 6px;
+    height: 6px;
+    background-color: #a4a7b0;
+    border-radius: 50%;
+    animation: bounceBubble 1.2s infinite ease-in-out;
+}
+
+.indicator-bubbles .bubble:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.indicator-bubbles .bubble:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounceBubble {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+/* Dynamic Thinking Indicator styling */
+.waai-dynamic-indicator {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 250px;
+    max-width: 100%;
+}
+
+.waai-thinking-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.waai-thinking-header .indicator-bubbles {
+    padding: 0 !important;
+    margin: 0;
+    gap: 3px;
+}
+
+.waai-thinking-header .indicator-bubbles .bubble {
+    width: 5px;
+    height: 5px;
+}
+
+.waai-thinking-status {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #5a5f73;
+    font-style: italic;
+    animation: pulseText 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseText {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.waai-thinking-tip {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 8px 10px;
+    background: rgba(95, 57, 255, 0.04);
+    border-left: 3px solid #5f39ff;
+    border-radius: 4px 8px 8px 4px;
+    margin-top: 2px;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.waai-tip-emoji {
+    font-size: 13px;
+    line-height: 1;
+    animation: wobbleEmoji 3s infinite ease-in-out;
+}
+
+.waai-tip-text {
+    font-size: 12px;
+    line-height: 1.4;
+    color: #4a5568;
+    font-weight: 400;
+}
+
+@keyframes wobbleEmoji {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(-15deg);
+    }
+
+    20% {
+        transform: rotate(10deg);
+    }
+
+    30% {
+        transform: rotate(-10deg);
+    }
+
+    40% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+}
+
+
+/* 6.5 Live Voice Call Status Bar and Controls */
+#live-status-bar {
+    height: 40px;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(95, 57, 255, 0.08) 0%, rgba(32, 217, 161, 0.08) 100%);
+    border-top: 1px solid rgba(95, 57, 255, 0.12);
+    border-bottom: 1px solid rgba(95, 57, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.live-status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.live-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #20d9a1;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #20d9a1;
+    animation: liveDotPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes liveDotPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: 0.6;
+    }
+}
+
+.live-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: #5f39ff;
+    letter-spacing: 0.3px;
+}
+
+.waai-orb-toggle {
+    background: transparent;
+    border: none;
+    color: #5f39ff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.waai-orb-toggle:hover {
+    background: rgba(95, 57, 255, 0.1);
+    transform: scale(1.05);
+}
+
+/* Mini visualizer container */
+.live-mini-visualizer {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    height: 16px;
+    width: 21px;
+    overflow: hidden;
+    contain: strict;
+}
+
+.live-mini-visualizer .bar {
+    display: block;
+    width: 3px;
+    height: 10px;
+    background-color: #5f39ff;
+    border-radius: 2px;
+    transform-origin: center;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Bouncing Bar Visualizer Animations */
+
+/* 1. Listening State (Active listening, bouncing green/purple) */
+.live-mini-visualizer.live-status-listening .bar {
+    background-color: #20d9a1;
+    animation: bounceBar 1.2s infinite ease-in-out;
+}
+
+.live-mini-visualizer.live-status-listening .bar1 {
+    animation-delay: 0.1s;
+}
+
+.live-mini-visualizer.live-status-listening .bar2 {
+    animation-delay: 0.3s;
+}
+
+.live-mini-visualizer.live-status-listening .bar3 {
+    animation-delay: 0.2s;
+}
+
+.live-mini-visualizer.live-status-listening .bar4 {
+    animation-delay: 0.4s;
+}
+
+/* 2. Thinking State (Slow pulsing, waiting for response) */
+.live-mini-visualizer.live-status-thinking .bar {
+    background-color: #8b6eff;
+    animation: pulseBar 1.5s infinite ease-in-out;
+}
+
+.live-mini-visualizer.live-status-thinking .bar1 {
+    animation-delay: 0s;
+}
+
+.live-mini-visualizer.live-status-thinking .bar2 {
+    animation-delay: 0.15s;
+}
+
+.live-mini-visualizer.live-status-thinking .bar3 {
+    animation-delay: 0.3s;
+}
+
+.live-mini-visualizer.live-status-thinking .bar4 {
+    animation-delay: 0.45s;
+}
+
+/* 3. Speaking State (Dynamic waving speech output) */
+.live-mini-visualizer.live-status-speaking .bar {
+    background-color: #5f39ff;
+    animation: bounceBarActive 0.8s infinite ease-in-out;
+}
+
+.live-mini-visualizer.live-status-speaking .bar1 {
+    animation-delay: 0.05s;
+}
+
+.live-mini-visualizer.live-status-speaking .bar2 {
+    animation-delay: 0.25s;
+}
+
+.live-mini-visualizer.live-status-speaking .bar3 {
+    animation-delay: 0.15s;
+}
+
+.live-mini-visualizer.live-status-speaking .bar4 {
+    animation-delay: 0.35s;
+}
+
+/* Keyframes for animations */
+@keyframes bounceBar {
+    0%,
+    100% {
+        transform: scaleY(0.4);
+    }
+
+    50% {
+        transform: scaleY(1.2);
+    }
+}
+
+@keyframes bounceBarActive {
+    0%,
+    100% {
+        transform: scaleY(0.3);
+    }
+
+    50% {
+        transform: scaleY(1.4);
+    }
+}
+
+@keyframes pulseBar {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scaleY(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scaleY(1.4);
+    }
+}
+
+/* Active state for voice call button */
+#voice-call-toggle.active {
+    background: #20d9a1;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(32, 217, 161, 0.4);
+    animation: activeCallGlow 2s infinite ease-in-out;
+}
+
+#voice-call-toggle {
+    background: rgba(95, 57, 255, 0.1);
+    color: #5f39ff;
+    position: relative;
+    animation: subtleWave 2.5s infinite ease-in-out;
+}
+
+#voice-call-toggle:hover {
+    background: rgba(95, 57, 255, 0.15);
+}
+
+@keyframes subtleWave {
+    0% {
+        box-shadow: 0 0 0 0 rgba(95, 57, 255, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgba(95, 57, 255, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(95, 57, 255, 0);
+    }
+}
+
+@keyframes activeCallGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(32, 217, 161, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 8px rgba(32, 217, 161, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(32, 217, 161, 0);
+    }
+}
+
+/* Muted state for microphone button during continuous call */
+#mic-btn.muted {
+    background: #ff453a !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(255, 69, 58, 0.3) !important;
+}
+
+#mic-btn.muted:hover {
+    background: #dd3b30 !important;
+}
+
+/* Hidden Utility */
+.hidden {
+    display: none !important;
+}
+
+/* 7. Responsive Mobile Overrides */
+@media (max-width: 480px) {
+    #chat-panel {
+        bottom: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        height: 85dvh;
+        height: 85vh;
+        max-height: 90dvh;
+        max-height: 90vh;
+        border-radius: 0;
+        border: none;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        animation: none;
+        overflow: hidden;
+    }
+
+    /* Hide the trigger button when the chat panel is open */
+    #chat-trigger.active {
+        display: none !important;
+    }
+
+    #chat-trigger {
+        bottom: 80px;
+        right: 16px;
+        width: 50px;
+        height: 50px;
+    }
+
+    #chat-trigger svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    /* Scale down voice overlay for mobile */
+    .waai-voice-immersive {
+        top: 70px;
+        /* adjusted for smaller mobile header */
+        bottom: 90px;
+        /* adjusted for mobile footer */
+    }
+
+    .waai-orb {
+        width: 90px;
+        height: 90px;
+    }
+
+    .transcript-ai {
+        font-size: 15px;
+        max-height: 44px;
+    }
+
+    /* Header — compact for mobile */
+    .chat-header {
+        padding: 12px 16px;
+    }
+
+    .chat-header .avatar {
+        width: 36px;
+        height: 36px;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+
+    .chat-header .agent-details h4 {
+        font-size: 14px;
+    }
+
+    .chat-header .header-actions button {
+        width: 36px;
+        height: 36px;
+    }
+
+    /* Messages body — tighter padding, fill available space */
+    #messages-body {
+        padding: 14px 12px;
+        gap: 12px;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        touch-action: pan-y;
+        min-height: 0;
+        /* flex child scroll fix */
+    }
+
+    .message {
+        max-width: 88%;
+    }
+
+    .message-content {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    /* Suggestions — smaller chips */
+    #suggestions-area {
+        padding: 8px 12px;
+        gap: 6px;
+    }
+
+    .suggest-btn {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+
+    /* Footer — larger touch targets, comfortable typing */
+    .chat-footer {
+        padding: 10px 12px;
+        gap: 8px;
+        /* Push above the mobile keyboard by ensuring it stays at the bottom */
+        position: sticky;
+        bottom: 0;
+        z-index: 5;
+    }
+
+    #chat-input {
+        font-size: 16px;
+        /* Prevents iOS zoom on focus */
+        padding: 8px 0;
+    }
+
+    .footer-buttons button {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+    }
+
+    .footer-buttons svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Overlay — full screen on mobile */
+    #embed-overlay {
+        top: 0;
+        border-radius: 0;
+    }
+
+    .overlay-header {
+        padding: 12px 16px;
+    }
+
+    #overlay-content {
+        padding: 16px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Lead form — bigger inputs for touch */
+    .form-group input,
+    .form-group textarea {
+        padding: 12px 14px;
+        font-size: 16px;
+        /* Prevents iOS zoom */
+        border-radius: 10px;
+    }
+
+    .submit-lead-btn {
+        padding: 14px;
+        font-size: 15px;
+        border-radius: 10px;
+    }
+
+    /* Live status bar */
+    #live-status-bar {
+        padding: 8px 12px;
+        height: 36px;
+        box-sizing: border-box;
+    }
+
+    /* Proactive bubble */
+    #proactive-bubble {
+        bottom: 82px;
+        right: 16px;
+        max-width: 200px;
+        font-size: 12px;
+        padding: 8px 14px;
+    }
+}
+
+/* 8. WhatsApp Button */
+#whatsapp-btn {
+    background: rgba(37, 211, 102, 0.08);
+    color: #25d366;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+#whatsapp-btn:hover {
+    background: #25d366;
+    color: #fff;
+    transform: scale(1.08);
+}
+
+#whatsapp-btn svg {
+    width: 17px;
+    height: 17px;
+}
+
+/* 9. Clear Chat Button */
+#clear-chat-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #555860;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+#clear-chat-btn:hover {
+    background: rgba(95, 57, 255, 0.08);
+    color: #5f39ff;
+}
+
+#clear-chat-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* 10. Proactive Trigger Bubble & Dot */
+#proactive-bubble {
+    position: fixed;
+    bottom: 102px;
+    right: 30px;
+    background: #fff;
+    border: 1px solid rgba(95, 57, 255, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-radius: 14px 14px 4px 14px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #13151b;
+    max-width: 220px;
+    z-index: 999997;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+#proactive-dot {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 14px;
+    height: 14px;
+    background: #ef4444;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    animation: proactivePulse 1.5s infinite ease-in-out;
+}
+
+@keyframes proactivePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+}
+
+/* 11. Voice Language Toggle */
+.waai-lang-toggle {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.waai-lang-btn {
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    border: 1px solid rgba(95, 57, 255, 0.2);
+    border-radius: 12px;
+    background: transparent;
+    color: #5f39ff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1.4;
+}
+
+.waai-lang-btn:hover {
+    background: rgba(95, 57, 255, 0.1);
+}
+
+.wa-lang-btn.active {
+    background: #5f39ff;
+    color: #fff;
+    border-color: #5f39ff;
+}
+
+/* 12. WhatsApp Overlay Styles */
+.wa-overlay-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+    gap: 15px;
+    padding-bottom: 10px;
+}
+
+.wa-header {
+    background: rgba(95, 57, 255, 0.04);
+    border: 1px solid rgba(95, 57, 255, 0.08);
+    border-radius: 12px;
+    padding: 12px 16px;
+}
+
+.wa-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #13151b;
+}
+
+.wa-recipient {
+    font-size: 12px;
+    color: #555860;
+    margin-top: 4px;
+}
+
+.wa-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 0;
+}
+
+.wa-status-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.wa-loader-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 54px;
+    width: 54px;
+    position: relative;
+}
+
+.wa-spinner {
+    width: 44px;
+    height: 44px;
+    border: 3.5px solid rgba(95, 57, 255, 0.1);
+    border-radius: 50%;
+    border-top-color: #5f39ff;
+    animation: wa-spin 0.8s linear infinite;
+}
+
+@keyframes wa-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.wa-status-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #13151b;
+    transition: color 0.3s ease;
+}
+
+.wa-status-text.success {
+    color: #20d9a1;
+}
+
+.wa-status-text.error {
+    color: #ff453a;
+}
+
+.wa-icon-prompt {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(95, 57, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: wa-popIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.wa-icon-success {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(32, 217, 161, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: wa-popIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.wa-icon-error {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 69, 58, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: wa-popIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes wa-popIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.wa-icon-svg {
+    width: 24px;
+    height: 24px;
+}
+
+.wa-message-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-height: 0;
+}
+
+.wa-preview-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #a4a7b0;
+}
+
+.wa-preview-box {
+    flex: 1;
+    background: rgba(244, 245, 248, 0.6);
+    border: 1px solid rgba(95, 57, 255, 0.08);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #3a3a3a;
+    overflow-y: auto;
+    word-break: break-word;
+    scrollbar-width: thin;
+}
+
+.wa-preview-box::-webkit-scrollbar {
+    width: 6px;
+}
+
+.wa-preview-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.wa-preview-box::-webkit-scrollbar-thumb {
+    background-color: rgba(95, 57, 255, 0.15);
+    border-radius: 3px;
+}
+
+.wa-actions {
+    margin-top: auto;
+    animation: wa-fadeIn 0.3s ease forwards;
+}
+
+.wa-actions-row {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+.wa-confirm-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: #5f39ff;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(95, 57, 255, 0.15);
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.wa-confirm-btn:hover {
+    background: #4822eb;
+    box-shadow: 0 6px 16px rgba(95, 57, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+.wa-confirm-btn:active {
+    transform: translateY(0);
+}
+
+.wa-cancel-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(95, 57, 255, 0.2);
+    background: transparent;
+    color: #5f39ff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.wa-cancel-btn:hover {
+    background: rgba(95, 57, 255, 0.05);
+    border-color: #5f39ff;
+}
+
+.wa-cancel-btn:active {
+    background: rgba(95, 57, 255, 0.1);
+}
+
+@keyframes wa-fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.wa-close-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: #5f39ff;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(95, 57, 255, 0.15);
+    transition: all 0.2s ease;
+}
+
+.wa-close-btn:hover {
+    background: #4822eb;
+    box-shadow: 0 6px 16px rgba(95, 57, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+.wa-close-btn:active {
+    transform: translateY(0);
+}
+
+/* Premium Markdown Chat Styling */
+.waai-chat-h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 12px 0 6px 0;
+    color: inherit;
+    font-family: inherit;
+}
+
+.waai-chat-hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin: 16px 0;
+}
+
+.waai-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin: 12px 0;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.waai-chat-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: left;
+}
+
+.waai-chat-table th {
+    background: rgba(97, 57, 255, 0.655);
+    color: #ffffff;
+    font-weight: 700;
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.waai-chat-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.waai-chat-table tr:last-child td {
+    border-bottom: none;
+}
+
+.waai-chat-table tr:nth-child(even) {
+    background: #3b3b3b;
+}
+
+.waai-chat-table tr:nth-child(odd) {
+    background: #575757;
+}
+
+/* Rich Media Carousel */
+.bot-message .waai-carousel-container {
+    width: calc(100% + 20px);
+    margin: 4px -10px;
+    /* Tighter margins, slight horizontal bleed for aesthetic */
+}
+
+.waai-carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 8px;
+    /* Tighter gap */
+    padding: 4px 10px 8px 10px;
+    /* Tighter padding, enough to not cut off shadows */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.waai-carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.waai-carousel-card {
+    flex: 0 0 88%;
+    /* Slightly wider so it fits nicely */
+    max-width: 240px;
+    scroll-snap-align: center;
+    /* Center snapping looks better for single items */
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Softer shadow, takes less vertical padding */
+    display: flex;
+    flex-direction: column;
+}
+
+.waai-carousel-card img {
+    width: 100%;
+    height: 120px;
+    /* Reduced from 140px to save space */
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.waai-carousel-card-body {
+    padding: 10px;
+    /* Reduced padding */
+    color: #13151b;
+}
+
+.waai-carousel-card-body h4 {
+    margin: 0 0 4px 0;
+    /* Reduced margin */
+    font-size: 14px;
+    /* Slightly smaller */
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.waai-carousel-card-body p {
+    margin: 0;
+    font-size: 12px;
+    /* Slightly smaller text */
+    color: #4a4a4a;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Show 2 lines max instead of 3 to save space */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 13. Voice-First Orb Interface */
+.waai-voice-immersive {
+    position: absolute;
+    top: 104px;
+    /* Below header */
+    left: 0;
+    width: 100%;
+    bottom: 112px;
+    /* Above footer */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.95);
+}
+
+.waai-voice-immersive.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+}
+
+/* for mobile */
+@media (max-width: 768px) {
+    .waai-voice-immersive {
+        top: 70px;
+    }
+}
+
+.waai-orb-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.waai-orb {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #a485ff, #5f39ff, #20d9a1);
+    box-shadow: 0 10px 40px rgba(95, 57, 255, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.5);
+    transition: all 0.5s ease;
+    position: relative;
+    /* Default idle state */
+    animation: orb-idle 4s ease-in-out infinite;
+}
+
+/* Glowing ring behind orb */
+.waai-orb::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(95, 57, 255, 0.2) 0%, transparent 70%);
+    z-index: -1;
+    animation: orb-glow 3s ease-in-out infinite;
+}
+
+/* Orb States */
+.waai-orb.state-listening {
+    background: radial-gradient(circle at 30% 30%, #7bf5ce, #20d9a1, #5f39ff);
+    box-shadow: 0 10px 50px rgba(32, 217, 161, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.6);
+    animation: orb-listening 1.5s ease-in-out infinite;
+}
+
+.waai-orb.state-listening::before {
+    background: radial-gradient(circle, rgba(32, 217, 161, 0.3) 0%, transparent 70%);
+    animation: orb-glow-fast 1.5s ease-in-out infinite;
+}
+
+.waai-orb.state-thinking {
+    background: radial-gradient(circle at 70% 70%, #ff85e4, #5f39ff, #5f39ff);
+    animation: orb-thinking 2s linear infinite;
+}
+
+.waai-orb.state-speaking {
+    background: radial-gradient(circle at 50% 50%, #a485ff, #5f39ff, #381ab8);
+    animation: orb-speaking 0.8s ease-in-out infinite alternate;
+}
+
+.waai-orb.state-speaking::before {
+    background: radial-gradient(circle, rgba(95, 57, 255, 0.4) 0%, transparent 80%);
+    animation: orb-glow-speaking 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes orb-idle {
+
+    0%,
+    100% {
+        transform: scale(1) translateY(0);
+    }
+
+    50% {
+        transform: scale(1.02) translateY(-5px);
+    }
+}
+
+@keyframes orb-glow {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+@keyframes orb-listening {
+
+    0%,
+    100% {
+        transform: scale(1.05);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes orb-glow-fast {
+
+    0%,
+    100% {
+        transform: scale(1.1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.4);
+        opacity: 1;
+    }
+}
+
+@keyframes orb-thinking {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(0.95);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+@keyframes orb-speaking {
+    0% {
+        transform: scale(1);
+        border-radius: 50%;
+    }
+
+    100% {
+        transform: scale(1.1);
+        border-radius: 45% 55% 50% 50% / 55% 45% 55% 45%;
+    }
+}
+
+@keyframes orb-glow-speaking {
+    0% {
+        transform: scale(1.1);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0.9;
+    }
+}
+
+/* Transcript Area */
+.waai-voice-transcript {
+    width: 100%;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    text-align: center;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.transcript-you {
+    font-size: 14px;
+    color: #646970;
+    margin-bottom: 8px;
+    font-style: italic;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.transcript-ai {
+    font-size: 18px;
+    font-weight: 600;
+    color: #13151b;
+    line-height: 1.4;
+    max-height: 54px;
+    /* Roughly 2 lines */
+    overflow: hidden;
+    scroll-behavior: smooth;
+    /* Remove line-clamp so we can scroll */
+}
