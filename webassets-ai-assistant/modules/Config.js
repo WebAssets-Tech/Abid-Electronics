@@ -27,9 +27,18 @@ export const ConfigMixin = {
             
         // Setup initial config values with fallbacks
         this.cfg.voiceLangs = this.cfg.voiceLangs || ['en-US'];
+        this.storagePrefix = this.cfg.storagePrefix || 'waai_abid_';
     },
     
     getConfig(key, fallback = null) {
         return this.cfg[key] !== undefined ? this.cfg[key] : fallback;
+    },
+
+    getStorageKey(key) {
+        const prefix = (this.cfg && this.cfg.storagePrefix) ? this.cfg.storagePrefix : 'waai_abid_';
+        if (typeof key === 'string' && key.startsWith('waai_')) {
+            return prefix + key.substring(5);
+        }
+        return prefix + key;
     }
 };

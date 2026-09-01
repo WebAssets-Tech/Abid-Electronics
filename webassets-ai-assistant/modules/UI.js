@@ -786,7 +786,10 @@ export const UIMixin = {
         this.chatHistory = [];
         this.suggestionUsed = false;
         // Clear localStorage
-        try { localStorage.removeItem('waai_chat_history'); } catch (e) { }
+        try { 
+            const storageKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey('waai_chat_history') : 'waai_abid_chat_history';
+            localStorage.removeItem(storageKey); 
+        } catch (e) { }
         // Clear DOM messages
         const msgBody = this.shadowRoot.getElementById('messages-body');
         if (msgBody) msgBody.innerHTML = '';
@@ -799,13 +802,15 @@ export const UIMixin = {
 
     saveHistoryToStorage() {
         try {
-            localStorage.setItem('waai_chat_history', JSON.stringify(this.chatHistory.slice(-20)));
+            const storageKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey('waai_chat_history') : 'waai_abid_chat_history';
+            localStorage.setItem(storageKey, JSON.stringify(this.chatHistory.slice(-20)));
         } catch (e) { }
     },
 
     restoreHistoryFromStorage() {
         try {
-            const saved = localStorage.getItem('waai_chat_history');
+            const storageKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey('waai_chat_history') : 'waai_abid_chat_history';
+            const saved = localStorage.getItem(storageKey);
             if (!saved) return false;
             const parsed = JSON.parse(saved);
             if (!Array.isArray(parsed) || parsed.length === 0) return false;

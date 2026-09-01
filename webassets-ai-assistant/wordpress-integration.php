@@ -190,6 +190,7 @@ function webassets_enqueue_ai_assistant_assets() {
         'hasSarvamKey'   => !empty(get_option('waai_sarvam_api_key', '')),
         'allowInterruptions' => get_option('waai_enable_interruptions', '1') === '1' ? '1' : '0',
         'nonce'          => wp_create_nonce('waai_secure_action'),
+        'storagePrefix'  => 'waai_abid_',
         
         // Agentic Configs
         'enableAgentic'              => get_option('waai_agentic_enabled', '0'),

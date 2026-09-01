@@ -143,7 +143,8 @@ export const StateMixin = {
 
     getStoredItem(key, fallback = null) {
         try {
-            return localStorage.getItem(key) || fallback;
+            const actualKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey(key) : key;
+            return localStorage.getItem(actualKey) || fallback;
         } catch (e) {
             return fallback;
         }
@@ -151,7 +152,8 @@ export const StateMixin = {
 
     setStoredItem(key, value) {
         try {
-            localStorage.setItem(key, value);
+            const actualKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey(key) : key;
+            localStorage.setItem(actualKey, value);
             return true;
         } catch (e) {
             return false;
@@ -160,7 +162,8 @@ export const StateMixin = {
 
     restoreHistoryFromStorage() {
         try {
-            const saved = localStorage.getItem('waai_chat_history');
+            const storageKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey('waai_chat_history') : 'waai_abid_chat_history';
+            const saved = localStorage.getItem(storageKey);
             if (saved) {
                 const parsed = JSON.parse(saved);
                 if (Array.isArray(parsed) && parsed.length > 0) {
@@ -184,7 +187,8 @@ export const StateMixin = {
 
     saveHistoryToStorage() {
         try {
-            localStorage.setItem('waai_chat_history', JSON.stringify(this.chatHistory));
+            const storageKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey('waai_chat_history') : 'waai_abid_chat_history';
+            localStorage.setItem(storageKey, JSON.stringify(this.chatHistory));
         } catch (e) {
             console.error('Failed to save chat history:', e);
         }
@@ -193,7 +197,8 @@ export const StateMixin = {
     clearHistory() {
         this.chatHistory = [];
         try {
-            localStorage.removeItem('waai_chat_history');
+            const storageKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey('waai_chat_history') : 'waai_abid_chat_history';
+            localStorage.removeItem(storageKey);
         } catch (e) {}
     }
 };

@@ -2024,7 +2024,8 @@ export const VoiceMixin = {
                     // Capture and persist the phone number from the lead form
                     this.capturedPhoneNumber = phone;
                     try {
-                        localStorage.setItem('waai_user_phone', phone);
+                        const phoneKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey('waai_user_phone') : 'waai_abid_user_phone';
+                        localStorage.setItem(phoneKey, phone);
                     } catch (e) { }
 
                     const msg = "Thank you! Your details have been submitted and confirmed successfully. I have sent your contact information to our team and they will reach out to you shortly.";
@@ -2275,7 +2276,8 @@ export const VoiceMixin = {
         // Show Voice Immersive Overlay
         const immersiveOverlay = this.shadowRoot.getElementById('voice-immersive-overlay');
         if (immersiveOverlay) {
-            if (localStorage.getItem('waai_voice_overlay_hidden') !== 'true') {
+            const overlayKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey('waai_voice_overlay_hidden') : 'waai_abid_voice_overlay_hidden';
+            if (localStorage.getItem(overlayKey) !== 'true') {
                 immersiveOverlay.classList.add('active');
             }
         }
