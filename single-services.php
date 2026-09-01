@@ -45,11 +45,7 @@ $book_link = get_theme_mod('hero_btn1_link', home_url('/book-appointment-and-ser
                     </div>
 
                     <!-- Value Proposition Badges -->
-                    <?php 
-                    $price = get_post_meta(get_the_ID(), '_service_price', true);
-                    ?>
                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                        <span class="badge bg-primary fs-6 px-3 py-2"><i class="ti-check-box me-1"></i> Starting Diagnostic: <?php echo !empty($price) ? esc_html($price) : '₹199'; ?></span>
                         <span class="badge bg-success fs-6 px-3 py-2"><i class="ti-time me-1"></i> Same-Day Doorstep Visit (2-4 Hrs)</span>
                         <span class="badge bg-warning text-dark fs-6 px-3 py-2"><i class="ti-shield me-1"></i> 100% Genuine Parts &amp; Warranty</span>
                     </div>
@@ -237,8 +233,8 @@ $book_link = get_theme_mod('hero_btn1_link', home_url('/book-appointment-and-ser
                 </div>
             </div>
 
-            <!-- Dynamic Services Sidebar -->
-            <div class="col-lg-4 col-12 order-lg-1">
+            <!-- Dynamic Services Sidebar (Hidden on Mobile) -->
+            <div class="col-lg-4 col-12 order-lg-1 d-none d-lg-block">
                 <div class="service-sidebar">
                     
                     <!-- All Services Navigation -->
