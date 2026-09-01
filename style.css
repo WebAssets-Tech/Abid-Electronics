@@ -365,6 +365,45 @@ Theme Styles Below
     line-height: 1 !important;
 }
 
+/* Mobile Header Call Button (46px Pulsing Glow) */
+.mobile-call-btn .mobile-call-pulse {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #3860D2 !important;
+    border-color: #3860D2 !important;
+    border-radius: 50% !important;
+    color: #ffffff !important;
+    position: relative !important;
+    box-shadow: 0 0 0 0 rgba(56, 96, 210, 0.7) !important;
+    animation: mobileCallPulse 2s infinite ease-in-out !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+}
+
+.mobile-call-btn .mobile-call-pulse:hover,
+.mobile-call-btn .mobile-call-pulse:focus,
+.mobile-call-btn .mobile-call-pulse:active {
+    transform: scale(1.08) !important;
+    background-color: #2b4cb0 !important;
+    color: #ffffff !important;
+}
+
+@keyframes mobileCallPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(56, 96, 210, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 12px rgba(56, 96, 210, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(56, 96, 210, 0);
+    }
+}
+
 .header-search-form-wrapper {
     margin-right: 0 !important;
 }
