@@ -707,52 +707,6 @@
 
     /*------------------------------------------
         = CONTACT FORM SUBMISSION
-    /*------------------------------------------
-        = MULTI-STEP FORM LOGIC
-    -------------------------------------------*/
-    if ($('.multi-step-form').length) {
-        let currentStep = 1;
-        const totalSteps = 3;
-
-        $('.btn-next').on('click', function() {
-            if (currentStep === 1) {
-                var form = $('#contact-form-main');
-                form.validate();
-                if (!form.valid()) {
-                    return;
-                }
-            }
-            if (currentStep < totalSteps) {
-                $('.step-' + currentStep).removeClass('active');
-                $('#dot-' + currentStep).addClass('completed');
-                currentStep++;
-                $('.step-' + currentStep).addClass('active');
-                $('#dot-' + currentStep).addClass('active');
-            }
-        });
-
-        $('.btn-prev').on('click', function() {
-            if (currentStep > 1) {
-                $('.step-' + currentStep).removeClass('active');
-                $('#dot-' + currentStep).removeClass('active');
-                currentStep--;
-                $('.step-' + currentStep).addClass('active');
-                $('#dot-' + currentStep).removeClass('completed');
-            }
-        });
-
-        $('#appliance_image').on('change', function(e) {
-            var fileName = e.target.files[0] ? e.target.files[0].name : '';
-            if (fileName) {
-                $('#file-name-display').text('Selected: ' + fileName);
-            } else {
-                $('#file-name-display').text('');
-            }
-        });
-    }
-
-    /*------------------------------------------
-        = CONTACT FORM SUBMISSION
     -------------------------------------------*/
     if ($("#contact-form-main").length) {
         $("#contact-form-main").validate({

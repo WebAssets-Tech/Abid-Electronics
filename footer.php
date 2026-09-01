@@ -269,6 +269,6 @@
     <script src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/js/modernizr.custom.js"></script>
     <script src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/js/jquery-plugin-collection.js"></script>
     <script src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/js/gsap-script.js"></script>
-    <script src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/js/script.js"></script>
+    <script src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/js/script.js?v=<?php echo file_exists(get_template_directory() . '/assets/js/script.js') ? filemtime(get_template_directory() . '/assets/js/script.js') : '2.1'; ?>"></script>
 </body>
 </html>
