@@ -32,14 +32,14 @@ get_header(); ?>
                         <input type="text" class="form-control" name="name" id="name" placeholder="Full Name*" required>
                     </div>
                     <div class="col col-lg-6 col-md-6 col-12">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Email Address*" required>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email Address (Optional)">
                     </div>
                     <div class="col col-lg-6 col-md-6 col-12">
                         <input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone Number (e.g. +91 9622917697)*" required>
                     </div>
                     <div class="col col-lg-6 col-md-6 col-12">
-                        <select name="subject" class="form-control" required>
-                            <option disabled="disabled" selected value="">Choose an Appliance / Service*</option>
+                        <select name="subject" class="form-control">
+                            <option disabled="disabled" selected value="">Choose an Appliance / Service (Optional)</option>
                             <?php
                             $services_dropdown_query = new WP_Query([
                                 'post_type'      => 'services',
@@ -65,7 +65,7 @@ get_header(); ?>
                         </select>
                     </div>
                     <div class="col col-lg-12 col-md-12 col-12">
-                        <input type="text" class="form-control" name="adress" id="adress" placeholder="Your Address / Area in Srinagar (e.g. Chattabal, Bemina, Rajbagh)*" required>
+                        <input type="text" class="form-control" name="adress" id="adress" placeholder="Your Address / Area in Srinagar (Optional)">
                     </div>
                     <div class="col col-lg-12 col-md-12 col-12">
                         <textarea class="form-control" name="note" id="note" placeholder="Describe the problem with your appliance (e.g., fridge not cooling, washer spinning issue)..." rows="4"></textarea>

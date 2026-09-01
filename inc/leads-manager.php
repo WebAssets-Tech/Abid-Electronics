@@ -213,7 +213,7 @@ function wa_submit_lead_ajax() {
     $service = isset($_POST['subject']) ? sanitize_text_field($_POST['subject']) : (isset($_POST['service']) ? sanitize_text_field($_POST['service']) : 'General Inquiry');
     $note    = isset($_POST['note']) ? sanitize_textarea_field($_POST['note']) : '';
 
-    if (empty($name) || empty($email) || empty($phone)) {
+    if (empty($name) || empty($phone)) {
         wp_send_json_error(array('message' => 'Please fill required fields.'));
     }
 

@@ -107,7 +107,7 @@ get_header(); ?>
                                 <label for="name"><i class="flaticon-user"></i></label>
                             </div>
                             <div class="input-item">
-                                <input id="email" name="email" class="fild" type="email" placeholder="Email Address*" required>
+                                <input id="email" name="email" class="fild" type="email" placeholder="Email Address (Optional)">
                                 <label for="email"><i class="flaticon-email"></i></label>
                             </div>
                             <div class="input-item">
@@ -115,11 +115,11 @@ get_header(); ?>
                                 <label for="phone"><i class="flaticon-phone-call"></i></label>
                             </div>
                             <div class="input-item">
-                                <input id="subject" name="subject" class="fild" type="text" placeholder="Appliance Model / Service Needed*" required>
+                                <input id="subject" name="subject" class="fild" type="text" placeholder="Appliance Model / Service Needed (Optional)">
                                 <label for="subject"><i class="flaticon-bag"></i></label>
                             </div>
                             <div class="input-item">
-                                <textarea id="message" name="note" class="fild textarea" placeholder="Describe the issue or repair required..." required></textarea>
+                                <textarea id="message" name="note" class="fild textarea" placeholder="Describe the issue or repair required (Optional)"></textarea>
                                 <label for="message"><i class="flaticon-edit"></i></label>
                             </div>
                             <div class="input-item submitbtn">

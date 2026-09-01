@@ -716,21 +716,12 @@
                     minlength: 2
                 },
 
-               email: "required",
-
-                phone: "required",
-                
-                subject: {
-                    required: true
-                },
-
+                phone: "required"
             },
 
             messages: {
                 name: "Please enter your name",
-                email: "Please enter your email address",
-                phone: "Please enter your phone number",
-                subject: "Please select your contact Service",
+                phone: "Please enter your phone number"
             },
 
             submitHandler: function (form) {
@@ -777,20 +768,12 @@
                     minlength: 2
                 },
 
-                email: "required",
-
-                phone: "required",
-
-                subject: {
-                    required: true
-                }
+                phone: "required"
             },
 
             messages: {
                 name: "Please enter your name",
-                email: "Please enter your email address",
-                phone: "Please enter your phone number",
-                subject: "Please select your contact subject"
+                phone: "Please enter your phone number"
             },
 
             submitHandler: function (form) {
