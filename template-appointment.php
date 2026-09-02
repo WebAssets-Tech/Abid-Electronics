@@ -880,6 +880,17 @@ get_header(); ?>
                 }
 
                 if (data && data.success) {
+                    // Trigger Google Ads & GA4 Conversion
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-17917551166'
+                        });
+                        gtag('event', 'generate_lead', {
+                            'event_category': 'Appointment',
+                            'event_label': 'Online Appointment Booked'
+                        });
+                    }
+
                     // Display success screen
                     document.getElementById('successCustomerName').textContent = nameInput.value.trim();
                     document.getElementById('successCustomerPhone').textContent = phoneInput.value.trim();

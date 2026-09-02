@@ -270,5 +270,42 @@
     <script src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/js/jquery-plugin-collection.js"></script>
     <script src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/js/gsap-script.js"></script>
     <script src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/js/script.js?v=<?php echo file_exists(get_template_directory() . '/assets/js/script.js') ? filemtime(get_template_directory() . '/assets/js/script.js') : '2.1'; ?>"></script>
+    
+    <!-- Google Ads & Analytics Automated Call & Conversion Tracker -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Track clicks on all Phone / Call links across the entire website
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(callBtn) {
+            callBtn.addEventListener('click', function() {
+                if (typeof gtag === 'function') {
+                    // Send to Google Ads Conversion
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-17917551166'
+                    });
+                    // Send to Google Analytics 4
+                    gtag('event', 'generate_lead', {
+                        'event_category': 'Phone Call',
+                        'event_label': 'Call Button Click'
+                    });
+                }
+            });
+        });
+
+        // Track clicks on all WhatsApp buttons
+        document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(function(waBtn) {
+            waBtn.addEventListener('click', function() {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-17917551166'
+                    });
+                    gtag('event', 'generate_lead', {
+                        'event_category': 'WhatsApp',
+                        'event_label': 'WhatsApp Chat Click'
+                    });
+                }
+            });
+        });
+    });
+    </script>
 </body>
 </html>

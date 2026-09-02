@@ -39,6 +39,17 @@
         rel="stylesheet">
     <link href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/sass/style.css" rel="stylesheet">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GPPPMV4ZDX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-GPPPMV4ZDX');
+      gtag('config', 'AW-17917551166');
+    </script>
+
     <?php wp_head(); ?>
     <link href="<?php echo esc_url(get_stylesheet_uri()); ?>" rel="stylesheet">
 </head>
