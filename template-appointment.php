@@ -880,7 +880,7 @@ get_header(); ?>
                 }
 
                 if (data && data.success) {
-                    // Trigger Google Ads & GA4 Conversion
+                    // Trigger Google Ads & GA4 Lead Conversion
                     if (typeof gtag === 'function') {
                         gtag('event', 'conversion', {
                             'send_to': 'AW-17917551166'

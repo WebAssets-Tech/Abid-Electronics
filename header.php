@@ -33,13 +33,11 @@
     <link href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/css/slick.css" rel="stylesheet">
     <link href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/css/slick-theme.css" rel="stylesheet">
     <link href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/css/swiper.min.css" rel="stylesheet">
-    <link href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/css/owl.transitions.css" rel="stylesheet">
     <link href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/css/jquery.fancybox.css" rel="stylesheet">
-    <link href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/css/odometer-theme-default.css"
-        rel="stylesheet">
+    <link href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/css/odometer-theme-default.css" rel="stylesheet">
     <link href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/sass/style.css" rel="stylesheet">
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) - GA4 & Google Ads -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GPPPMV4ZDX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
