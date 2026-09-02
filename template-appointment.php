@@ -492,23 +492,30 @@ get_header(); ?>
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-12 col-12 text-center">
                 <div class="wpo-section-title mb-4 wow fadeInUp" data-wow-duration="1000ms">
-                    <span>Recognized &amp; Registered</span>
-                    <h2 class="poort-text poort-in-right">Government Registrations &amp; Certifications</h2>
-                    <p class="text-muted">Abid Electronics Service Hub is a fully registered and certified appliance repair business, recognized by the Government of Jammu &amp; Kashmir and the Ministry of MSME.</p>
+                    <span>Recognized, Certified &amp; Trusted</span>
+                    <h2 class="poort-text poort-in-right">Official Certifications &amp; Recognition</h2>
+                    <p class="text-muted">Abid Electronics Service Hub is a fully registered business recognized by the Government of Jammu &amp; Kashmir, MSME Government of India, and awarded the Justdial Users' Choice Certificate.</p>
                 </div>
             </div>
         </div>
         <div class="row justify-content-center mt-4">
-            <div class="col-lg-5 col-md-6 col-12 mb-4 wow fadeInLeft" data-wow-duration="1200ms">
-                <div class="certificate-card bg-white p-3 shadow-sm rounded-3 text-center border" style="transition: transform 0.3s ease;">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/about/certificate-1.png" alt="J&amp;K Shops &amp; Establishment Certificate" class="img-fluid rounded border" style="max-height: 400px; object-fit: contain;">
-                    <h4 class="mt-3 mb-1" style="font-size: 16px; font-weight: 700;">J&amp;K Shops &amp; Establishment Act 1966</h4>
+            <div class="col-lg-4 col-md-6 col-12 mb-4 wow fadeInLeft" data-wow-duration="1000ms">
+                <div class="certificate-card bg-white p-3 shadow-sm rounded-3 text-center border h-100" style="transition: transform 0.3s ease;">
+                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/about/certificate-3.jpg" alt="Justdial Users' Choice 2026 Certificate" class="img-fluid rounded border" style="max-height: 380px; width: 100%; object-fit: contain;">
+                    <h4 class="mt-3 mb-1" style="font-size: 16px; font-weight: 700;">Justdial Users' Choice 2026</h4>
+                    <p class="text-muted mb-0" style="font-size: 13px;">5-Star Rated Service Hub (Chattabal)</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mb-4 wow fadeInUp" data-wow-duration="1200ms">
+                <div class="certificate-card bg-white p-3 shadow-sm rounded-3 text-center border h-100" style="transition: transform 0.3s ease;">
+                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/about/certificate-1.png" alt="J&amp;K Shops &amp; Establishment Certificate" class="img-fluid rounded border" style="max-height: 380px; width: 100%; object-fit: contain;">
+                    <h4 class="mt-3 mb-1" style="font-size: 16px; font-weight: 700;">J&amp;K Shops &amp; Establishment Act</h4>
                     <p class="text-muted mb-0" style="font-size: 13px;">Registration Certificate</p>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-6 col-12 mb-4 wow fadeInRight" data-wow-duration="1200ms">
-                <div class="certificate-card bg-white p-3 shadow-sm rounded-3 text-center border" style="transition: transform 0.3s ease;">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/about/certificate-2.png" alt="MSME Udyam Registration Certificate" class="img-fluid rounded border" style="max-height: 400px; object-fit: contain;">
+            <div class="col-lg-4 col-md-6 col-12 mb-4 wow fadeInRight" data-wow-duration="1400ms">
+                <div class="certificate-card bg-white p-3 shadow-sm rounded-3 text-center border h-100" style="transition: transform 0.3s ease;">
+                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/about/certificate-2.png" alt="MSME Udyam Registration Certificate" class="img-fluid rounded border" style="max-height: 380px; width: 100%; object-fit: contain;">
                     <h4 class="mt-3 mb-1" style="font-size: 16px; font-weight: 700;">MSME Udyam Registration</h4>
                     <p class="text-muted mb-0" style="font-size: 13px;">Government of India</p>
                 </div>
