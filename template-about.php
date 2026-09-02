@@ -145,21 +145,27 @@ get_header(); ?>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-4 col-md-6 col-12 mb-4 wow fadeInLeft" data-wow-duration="1000ms">
                 <div class="certificate-card bg-white p-3 shadow-sm rounded-3 text-center border h-100" style="transition: transform 0.3s ease;">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/about/certificate-3.jpg" alt="Justdial Users' Choice 2026 Certificate" class="img-fluid rounded border" style="max-height: 380px; width: 100%; object-fit: contain;">
+                    <a href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/about/certificate-3.jpg" class="fancybox d-block" data-fancybox-group="about-certifications" title="Justdial Users' Choice 2026 Certificate">
+                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/about/certificate-3.jpg" alt="Justdial Users' Choice 2026 Certificate" class="img-fluid rounded border" style="max-height: 380px; width: 100%; object-fit: contain;">
+                    </a>
                     <h4 class="mt-3 mb-1" style="font-size: 16px; font-weight: 700;">Justdial Users' Choice 2026</h4>
                     <p class="text-muted mb-0" style="font-size: 13px;">5-Star Rated Service Hub (Chattabal)</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-12 mb-4 wow fadeInUp" data-wow-duration="1200ms">
                 <div class="certificate-card bg-white p-3 shadow-sm rounded-3 text-center border h-100" style="transition: transform 0.3s ease;">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/about/certificate-1.png" alt="J&amp;K Shops &amp; Establishment Certificate" class="img-fluid rounded border" style="max-height: 380px; width: 100%; object-fit: contain;">
+                    <a href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/about/certificate-1.png" class="fancybox d-block" data-fancybox-group="about-certifications" title="J&amp;K Shops &amp; Establishment Certificate">
+                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/about/certificate-1.png" alt="J&amp;K Shops &amp; Establishment Certificate" class="img-fluid rounded border" style="max-height: 380px; width: 100%; object-fit: contain;">
+                    </a>
                     <h4 class="mt-3 mb-1" style="font-size: 16px; font-weight: 700;">J&amp;K Shops &amp; Establishment Act</h4>
                     <p class="text-muted mb-0" style="font-size: 13px;">Registration Certificate</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-12 mb-4 wow fadeInRight" data-wow-duration="1400ms">
                 <div class="certificate-card bg-white p-3 shadow-sm rounded-3 text-center border h-100" style="transition: transform 0.3s ease;">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/about/certificate-2.png" alt="MSME Udyam Registration Certificate" class="img-fluid rounded border" style="max-height: 380px; width: 100%; object-fit: contain;">
+                    <a href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/about/certificate-2.png" class="fancybox d-block" data-fancybox-group="about-certifications" title="MSME Udyam Registration Certificate">
+                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/about/certificate-2.png" alt="MSME Udyam Registration Certificate" class="img-fluid rounded border" style="max-height: 380px; width: 100%; object-fit: contain;">
+                    </a>
                     <h4 class="mt-3 mb-1" style="font-size: 16px; font-weight: 700;">MSME Udyam Registration</h4>
                     <p class="text-muted mb-0" style="font-size: 13px;">Government of India</p>
                 </div>
