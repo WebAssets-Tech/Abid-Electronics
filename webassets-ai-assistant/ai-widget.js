@@ -6,19 +6,19 @@
  * Uses HTML5 Web Component, Shadow DOM, Web Speech API, and relative endpoints.
  */
 
-import { ConfigMixin } from './modules/Config.js?v=3.0.25';
-import { StateMixin } from './modules/State.js?v=3.0.25';
-import { LoggerMixin } from './modules/Logger.js?v=3.0.25';
-import { ValidatorsMixin } from './modules/Validators.js?v=3.0.25';
-import { EventBusMixin } from './modules/EventBus.js?v=3.0.25';
-import { ConversationStateMixin } from './modules/ConversationState.js?v=3.0.25';
-import { ActionsMixin } from './modules/Actions.js?v=3.0.25';
-import { UIMixin } from './modules/UI.js?v=3.0.25';
-import { APIMixin } from './modules/API.js?v=3.0.25';
-import { FormsMixin } from './modules/Forms.js?v=3.0.25';
-import { VoiceMixin } from './modules/Voice.js?v=3.0.25';
-import { TTSQueue } from './modules/TTSQueue.js?v=3.0.25';
-import { AgenticActions } from './modules/AgenticActions.js?v=3.0.25';
+import { ConfigMixin } from './modules/Config.js?v=3.0.26';
+import { StateMixin } from './modules/State.js?v=3.0.26';
+import { LoggerMixin } from './modules/Logger.js?v=3.0.26';
+import { ValidatorsMixin } from './modules/Validators.js?v=3.0.26';
+import { EventBusMixin } from './modules/EventBus.js?v=3.0.26';
+import { ConversationStateMixin } from './modules/ConversationState.js?v=3.0.26';
+import { ActionsMixin } from './modules/Actions.js?v=3.0.26';
+import { UIMixin } from './modules/UI.js?v=3.0.26';
+import { APIMixin } from './modules/API.js?v=3.0.26';
+import { FormsMixin } from './modules/Forms.js?v=3.0.26';
+import { VoiceMixin } from './modules/Voice.js?v=3.0.26';
+import { TTSQueue } from './modules/TTSQueue.js?v=3.0.26';
+import { AgenticActions } from './modules/AgenticActions.js?v=3.0.26';
 
 class AIAssistantWidget extends HTMLElement {
     constructor() {

@@ -35,9 +35,20 @@ export const UIMixin = {
                </button>`
             : '';
 
+        // Build external floating WhatsApp button HTML (above the widget)
+        const floatingWhatsappHtml = whatsappNumber
+            ? `<a href="${whatsappNumber.startsWith('http') ? whatsappNumber : 'https://wa.me/' + whatsappNumber.replace(/[^0-9]/g, '')}" target="_blank" id="external-whatsapp-btn" class="waai-floating-whatsapp" aria-label="Chat on WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.102.537 4.073 1.477 5.793L.057 23.576l5.916-1.551A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.812 9.812 0 01-5.001-1.37l-.359-.214-3.712.974.991-3.604-.233-.371A9.817 9.817 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+                </svg>
+               </a>`
+            : '';
+
         container.innerHTML = `
             <!-- Chat Trigger Button -->
             <div id="proactive-bubble" class="hidden"></div>
+            ${floatingWhatsappHtml}
             <button id="chat-trigger" aria-label="Open AI Assistant">
                 <!-- AI Centric Sparkles Icon -->
                 <svg class="icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -786,10 +797,7 @@ export const UIMixin = {
         this.chatHistory = [];
         this.suggestionUsed = false;
         // Clear localStorage
-        try { 
-            const storageKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey('waai_chat_history') : 'waai_abid_chat_history';
-            localStorage.removeItem(storageKey); 
-        } catch (e) { }
+        try { localStorage.removeItem('waai_chat_history'); } catch (e) { }
         // Clear DOM messages
         const msgBody = this.shadowRoot.getElementById('messages-body');
         if (msgBody) msgBody.innerHTML = '';
@@ -802,15 +810,13 @@ export const UIMixin = {
 
     saveHistoryToStorage() {
         try {
-            const storageKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey('waai_chat_history') : 'waai_abid_chat_history';
-            localStorage.setItem(storageKey, JSON.stringify(this.chatHistory.slice(-20)));
+            localStorage.setItem('waai_chat_history', JSON.stringify(this.chatHistory.slice(-20)));
         } catch (e) { }
     },
 
     restoreHistoryFromStorage() {
         try {
-            const storageKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey('waai_chat_history') : 'waai_abid_chat_history';
-            const saved = localStorage.getItem(storageKey);
+            const saved = localStorage.getItem('waai_chat_history');
             if (!saved) return false;
             const parsed = JSON.parse(saved);
             if (!Array.isArray(parsed) || parsed.length === 0) return false;

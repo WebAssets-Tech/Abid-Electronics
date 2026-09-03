@@ -586,14 +586,14 @@ function waai_build_system_prompt($user_phone = '', $user_email = '', $page_cont
         $site_url = $proto . '://' . $host;
     }
 
-    $name     = waai_config('waai_company_name',        'Abid Electronics Service Hub');
-    $tagline  = waai_config('waai_company_tagline',     'Srinagar\'s 5-Star Rated Multi-Brand Appliance Repair Hub');
-    $location = waai_config('waai_company_location',    'Bemina Crossing, Chattabal, Srinagar, Jammu & Kashmir 190001');
-    $phone    = waai_config('waai_company_phone',       '9622917697');
-    $email    = waai_config('waai_company_email',       'support@abidelectronics.in');
+    $name     = waai_config('waai_company_name',        'Company');
+    $tagline  = waai_config('waai_company_tagline',     'Professional AI Assistant');
+    $location = waai_config('waai_company_location',    '');
+    $phone    = waai_config('waai_company_phone',       '');
+    $email    = waai_config('waai_company_email',       '');
     $website  = waai_config('waai_company_website',     $site_url);
-    $desc     = waai_config('waai_company_description', 'Multi-brand doorstep home and commercial appliance repair service in Srinagar. Specializing in Refrigerator, Washing Machine, AC, Geyser, Microwave, and Bakery Display Counter repairs with 100% genuine parts and same-day doorstep service.');
-    $tone     = waai_config('waai_tone_rules',          'Be a polite, expert local appliance technician assistant for Srinagar. Provide clear diagnostic answers, mention genuine parts and same-day doorstep service, and encourage the user to book a repair visit or call 9622917697.');
+    $desc     = waai_config('waai_company_description', 'Professional AI Assistant');
+    $tone     = waai_config('waai_tone_rules',          'Keep replies brief, engaging, and professional. Always end with a clear call-to-action (book consultation, visit product page, or contact us).');
 
     $contact_parts = [];
     if ($phone)   $contact_parts[] = "Phone: {$phone}";

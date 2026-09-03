@@ -1843,3 +1843,47 @@
     scroll-behavior: smooth;
     /* Remove line-clamp so we can scroll */
 }
+
+/* External Floating WhatsApp Button */
+.waai-floating-whatsapp {
+    position: fixed;
+    bottom: 105px;
+    right: 35px;
+    width: 50px;
+    height: 50px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+    z-index: 9998;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+.waai-floating-whatsapp svg {
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
+}
+
+.waai-floating-whatsapp:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+    color: #FFF;
+}
+
+@media (max-width: 480px) {
+    .waai-floating-whatsapp {
+        bottom: 140px;
+        right: 18px;
+        width: 45px;
+        height: 45px;
+    }
+    .waai-floating-whatsapp svg {
+        width: 24px;
+        height: 24px;
+    }
+}

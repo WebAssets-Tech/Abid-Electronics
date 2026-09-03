@@ -156,7 +156,7 @@ export const APIMixin = {
             };
 
             // 1. DOM Interactables Compression — only run if enabled and not already cached for this page
-            const domCacheKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey('dom_map_' + window.location.pathname) : ('waai_abid_dom_map_' + window.location.pathname);
+            const domCacheKey = 'waai_dom_map_' + window.location.pathname;
             if (window.waaiConfig && window.waaiConfig.enablePageLinks === '0') {
                 localStorage.removeItem(domCacheKey);
             } else if ((!window.waaiConfig || window.waaiConfig.enablePageLinks !== '0') && !localStorage.getItem(domCacheKey) && rawContext.interactables && rawContext.interactables.length > 0) {
@@ -181,7 +181,7 @@ export const APIMixin = {
             }
 
             // 2. Page Content Summary — only run if enabled and not already cached for this page
-            const pageSummaryCacheKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey('page_summary_' + window.location.pathname) : ('waai_abid_page_summary_' + window.location.pathname);
+            const pageSummaryCacheKey = 'waai_page_summary_' + window.location.pathname;
             if (window.waaiConfig && window.waaiConfig.enablePageText === '0') {
                 localStorage.removeItem(pageSummaryCacheKey);
             } else if ((!window.waaiConfig || window.waaiConfig.enablePageText !== '0') && !localStorage.getItem(pageSummaryCacheKey) && rawContext.page_content && rawContext.page_content.length > 200) {
@@ -213,7 +213,7 @@ export const APIMixin = {
             }
 
             // 3. Global Sitemap Background Sync — only run if enabled and not already cached
-            const sitemapCacheKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey('global_sitemap_map') : 'waai_abid_global_sitemap_map';
+            const sitemapCacheKey = 'waai_global_sitemap_map';
             if (window.waaiConfig && !window.waaiConfig.siteIndex) {
                 localStorage.removeItem(sitemapCacheKey);
             } else if (window.waaiConfig && window.waaiConfig.siteIndex && !localStorage.getItem(sitemapCacheKey)) {
@@ -248,7 +248,7 @@ export const APIMixin = {
         
         // Attach global sitemap if cached and enabled
         if (window.waaiConfig && window.waaiConfig.siteIndex) {
-            const sitemapCacheKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey('global_sitemap_map') : 'waai_abid_global_sitemap_map';
+            const sitemapCacheKey = 'waai_global_sitemap_map';
             const cachedSitemap = localStorage.getItem(sitemapCacheKey);
             if (cachedSitemap) {
                 try {
@@ -330,7 +330,7 @@ export const APIMixin = {
         }
         
         if (!bypassCache && (!window.waaiConfig || window.waaiConfig.enablePageLinks !== '0')) {
-            const cacheKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey('dom_map_' + window.location.pathname) : ('waai_abid_dom_map_' + window.location.pathname);
+            const cacheKey = 'waai_dom_map_' + window.location.pathname;
             const cachedMap = localStorage.getItem(cacheKey);
             if (cachedMap) {
                 try {
@@ -383,7 +383,7 @@ export const APIMixin = {
         }
 
         // Use cached page summary from secondary LLM if available (saves tokens vs raw text)
-        const pageSummaryCacheKey = (typeof this.getStorageKey === 'function') ? this.getStorageKey('page_summary_' + window.location.pathname) : ('waai_abid_page_summary_' + window.location.pathname);
+        const pageSummaryCacheKey = 'waai_page_summary_' + window.location.pathname;
         const cachedSummary = (!bypassCache && (!window.waaiConfig || window.waaiConfig.enablePageText !== '0')) ? localStorage.getItem(pageSummaryCacheKey) : null;
 
         if (cachedSummary && cachedSummary !== '[WAAI_SUMMARY_FAILED]') {
