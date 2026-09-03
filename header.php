@@ -59,6 +59,7 @@
     <!-- start page-wrapper -->
     <div class="page-wrapper">
         <!-- start preloader -->
+        <!-- 
         <div class="preloader">
             <div class="vertical-centered-box">
                 <div class="content">
@@ -69,7 +70,8 @@
                     <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/preloader.png" alt="">
                 </div>
             </div>
-        </div>
+        </div> 
+        -->
         <!-- end preloader -->
 
         <!-- Start header -->
