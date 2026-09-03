@@ -271,38 +271,5 @@
     <script src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/js/gsap-script.js"></script>
     <script src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/js/script.js?v=<?php echo file_exists(get_template_directory() . '/assets/js/script.js') ? filemtime(get_template_directory() . '/assets/js/script.js') : '2.1'; ?>"></script>
 
-    <!-- Google Ads & GA4 Automated Call & WhatsApp Conversion Tracking -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Track All Phone Call Clicks (tel: links)
-        var callLinks = document.querySelectorAll('a[href^="tel:"]');
-        callLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                if (typeof gtag === 'function') {
-                    gtag('event', 'conversion', {
-                        'send_to': 'AW-17917551166'
-                    });
-                    gtag('event', 'phone_call_click', {
-                        'event_category': 'Engagement',
-                        'event_label': this.getAttribute('href') || 'Call Button Click'
-                    });
-                }
-            });
-        });
-
-        // Track WhatsApp Clicks (wa.me links)
-        var waLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]');
-        waLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                if (typeof gtag === 'function') {
-                    gtag('event', 'whatsapp_click', {
-                        'event_category': 'Engagement',
-                        'event_label': 'WhatsApp Button Click'
-                    });
-                }
-            });
-        });
-    });
-    </script>
 </body>
 </html>
