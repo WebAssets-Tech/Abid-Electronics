@@ -37,16 +37,13 @@
     <link href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/css/odometer-theme-default.css" rel="stylesheet">
     <link href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/sass/style.css" rel="stylesheet">
 
-    <!-- Google tag (gtag.js) - GA4 & Google Ads -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GPPPMV4ZDX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-GPPPMV4ZDX');
-      gtag('config', 'AW-17917551166');
-    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WTK7QVP6');</script>
+    <!-- End Google Tag Manager -->
 
     <?php wp_head(); ?>
     <link href="<?php echo esc_url(get_stylesheet_uri()); ?>" rel="stylesheet">
@@ -54,6 +51,10 @@
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTK7QVP6"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <!-- start page-wrapper -->
     <div class="page-wrapper">
