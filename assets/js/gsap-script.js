@@ -111,35 +111,38 @@ window.addEventListener("load", function () {
 
     gsap.registerPlugin(SplitText);
 
-    st.forEach(function (el) {
-        el.split = new SplitText(el, { type: "lines,words,chars", linesClass: "poort-line" });
-        gsap.set(el, { perspective: 600 });
+    // Wait for fonts to be ready before splitting text to avoid layout errors
+    document.fonts.ready.then(function () {
+        st.forEach(function (el) {
+            el.split = new SplitText(el, { type: "lines,words,chars", linesClass: "poort-line" });
+            gsap.set(el, { perspective: 600 });
 
-        if (el.classList.contains("poort-in-right")) {
-            gsap.set(el.split.chars, { opacity: 0, x: "100", ease: "Back.easeOut" });
-        }
-        if (el.classList.contains("poort-in-left")) {
-            gsap.set(el.split.chars, { opacity: 0, x: "-100", ease: "circ.out" });
-        }
-        if (el.classList.contains("poort-in-up")) {
-            gsap.set(el.split.chars, { opacity: 0, y: "80", ease: "circ.out" });
-        }
-        if (el.classList.contains("poort-in-down")) {
-            gsap.set(el.split.chars, { opacity: 0, y: "-80", ease: "circ.out" });
-        }
+            if (el.classList.contains("poort-in-right")) {
+                gsap.set(el.split.chars, { opacity: 0, x: "100", ease: "Back.easeOut" });
+            }
+            if (el.classList.contains("poort-in-left")) {
+                gsap.set(el.split.chars, { opacity: 0, x: "-100", ease: "circ.out" });
+            }
+            if (el.classList.contains("poort-in-up")) {
+                gsap.set(el.split.chars, { opacity: 0, y: "80", ease: "circ.out" });
+            }
+            if (el.classList.contains("poort-in-down")) {
+                gsap.set(el.split.chars, { opacity: 0, y: "-80", ease: "circ.out" });
+            }
 
-        el.anim = gsap.to(el.split.chars, {
-            scrollTrigger: {
-                trigger: el,
-                start: "top 90%",
-            },
-            x: "0",
-            y: "0",
-            rotateX: "0",
-            scale: 1,
-            opacity: 1,
-            duration: 0.6,
-            stagger: 0.02,
+            el.anim = gsap.to(el.split.chars, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 90%",
+                },
+                x: "0",
+                y: "0",
+                rotateX: "0",
+                scale: 1,
+                opacity: 1,
+                duration: 0.6,
+                stagger: 0.02,
+            });
         });
     });
 });
