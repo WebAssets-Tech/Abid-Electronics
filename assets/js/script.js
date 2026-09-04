@@ -340,7 +340,7 @@
         mobile: true,       // default
         live: true        // default
     });
-
+    wow.init();
 
     /*------------------------------------------
         = ACTIVE POPUP IMAGE
